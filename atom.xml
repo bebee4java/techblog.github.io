@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-27T10:12:53.967Z</updated>
+  <updated>2019-09-27T11:27:10.439Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2019/09/27/conda%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2019/09/27/conda使用/</id>
+    <published>2019-09-27T11:27:10.439Z</published>
+    <updated>2019-09-27T11:27:10.439Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>创建环境<blockquote><p>创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）</p></blockquote></li></ul><p>conda create –name py35 python=3.5</p><ul><li>激活环境<blockquote><p>激活py35环境</p></blockquote></li></ul><p>source activate py35</p><ul><li><p>返回主环境</p></li><li><p>source deactivate py35</p></li><li><p>删除环境</p><blockquote><p>删除一个已有的环境</p></blockquote></li></ul><p>conda remove –name py35 –all</p><ul><li>查看系统中的所有环境</li></ul><p>conda info -e</p><ul><li>安装库</li></ul><p>conda install numpy</p><ul><li>查看已经安装的库</li></ul><p>conda list</p><ul><li>搜索package的信息</li></ul><p>conda search numpy</p><ul><li>安装package到指定的环境<blockquote><p>如果不用-n指定环境名称，则被安装在当前活跃环境<br>也可以通过-c指定通过某个channel安装</p></blockquote></li></ul><p>conda install -n py35 numpy</p><ul><li>更新package</li></ul><p>conda update -n py35 numpy</p><ul><li>删除package</li></ul><p>conda remove -n py35 numpy</p><ul><li>设置国内镜像<blockquote><p>会在User主目录下生成.condarc文件<br>删掉channels下面的 -defaults一行,使其不再访问默认channel</p></blockquote></li></ul><p>conda config –add channels <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</a></p><p>conda config –add channels <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</a></p><p>conda config –set show_channel_urls yes</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;创建环境&lt;blockquote&gt;
+&lt;p&gt;创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;conda create 
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
