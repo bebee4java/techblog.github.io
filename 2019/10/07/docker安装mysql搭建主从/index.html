@@ -56,19 +56,21 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="scala, java, python, 博客, 技术分享, 大数据, 机器学习, 大数据技术分享">
+  <meta name="description" content="查看镜像docker search mysql:5.7 拉取镜像docker pull mysql:5.7 运行mysql容器建立配置文件">
+<meta name="keywords" content="docker,虚拟化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/09/27/hello-world/index.html">
+<meta property="og:title" content="docker安装mysql搭建主从">
+<meta property="og:url" content="http://yoursite.com/2019/10/07/docker安装mysql搭建主从/index.html">
 <meta property="og:site_name" content="tech-blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="查看镜像docker search mysql:5.7 拉取镜像docker pull mysql:5.7 运行mysql容器建立配置文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-27T10:12:53.967Z">
+<meta property="og:image" content="http://yoursite.com/.com//markdown-img-paste-20190926144820868.png">
+<meta property="og:updated_time" content="2019-10-07T14:23:19.342Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-  <link rel="canonical" href="http://yoursite.com/2019/09/27/hello-world/">
+<meta name="twitter:title" content="docker安装mysql搭建主从">
+<meta name="twitter:description" content="查看镜像docker search mysql:5.7 拉取镜像docker pull mysql:5.7 运行mysql容器建立配置文件">
+<meta name="twitter:image" content="http://yoursite.com/.com//markdown-img-paste-20190926144820868.png">
+  <link rel="canonical" href="http://yoursite.com/2019/10/07/docker安装mysql搭建主从/">
 
 
 <script id="page-configurations">
@@ -82,7 +84,7 @@
   };
 </script>
 
-  <title>Hello World | tech-blog</title>
+  <title>docker安装mysql搭建主从 | tech-blog</title>
   
 
 
@@ -252,7 +254,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/docker安装mysql搭建主从/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bebee4java">
@@ -264,7 +266,7 @@
       <meta itemprop="name" content="tech-blog">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Hello World
+        <h1 class="post-title" itemprop="name headline">docker安装mysql搭建主从
 
           
         </h1>
@@ -280,7 +282,24 @@
                 
               
 
-              <time title="创建时间：2019-09-27 18:12:53" itemprop="dateCreated datePublished" datetime="2019-09-27T18:12:53+08:00">2019-09-27</time>
+              <time title="创建时间：2019-10-07 22:09:40 / 修改时间：22:23:19" itemprop="dateCreated datePublished" datetime="2019-10-07T22:09:40+08:00">2019-10-07</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
+
+                
+                
+              
             </span>
           
 
@@ -295,15 +314,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><p>docker search mysql:5.7</p>
+<h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>docker pull mysql:5.7</p>
+<h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><h3 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h3><p><img src="/.com//markdown-img-paste-20190926144820868.png" alt></p>
 
     </div>
 
@@ -314,21 +327,32 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/docker/" rel="tag"># docker</a>
+            
+              <a href="/tags/虚拟化/" rel="tag"># 虚拟化</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/09/27/hello-world/" rel="next" title="Hello World">
+                  <i class="fa fa-chevron-left"></i> Hello World
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/07/docker安装mysql搭建主从/" rel="prev" title="docker安装mysql搭建主从">
-                  docker安装mysql搭建主从 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -380,7 +404,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看镜像"><span class="nav-number">1.</span> <span class="nav-text">查看镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉取镜像"><span class="nav-number">2.</span> <span class="nav-text">拉取镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行mysql容器"><span class="nav-number">3.</span> <span class="nav-text">运行mysql容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立配置文件"><span class="nav-number">3.1.</span> <span class="nav-text">建立配置文件</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -585,7 +609,7 @@ window.addEventListener('pjax:success', () => {
       repo: 'techblog.github.io',
       owner: 'bebee4java',
       admin: ['bebee4java'],
-      id: '9314bf57f14480ead2f25cb7bf99f06c',
+      id: 'c7ee5dc7561ab17b4cce0c8781bd40bd',
         language: 'zh-CN',
       
       distractionFreeMode: 'true'
