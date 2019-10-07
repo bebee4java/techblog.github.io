@@ -5,9 +5,9 @@
   <subtitle>技术总结、分享</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://blogtech.top/"/>
   <updated>2019-10-07T14:46:49.342Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://blogtech.top/</id>
   
   <author>
     <name>bebee4java</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>docker安装mysql搭建主从</title>
-    <link href="http://yoursite.com/2019/10/07/docker%E5%AE%89%E8%A3%85mysql%E6%90%AD%E5%BB%BA%E4%B8%BB%E4%BB%8E/"/>
-    <id>http://yoursite.com/2019/10/07/docker安装mysql搭建主从/</id>
+    <link href="https://blogtech.top/2019/10/07/docker%E5%AE%89%E8%A3%85mysql%E6%90%AD%E5%BB%BA%E4%B8%BB%E4%BB%8E/"/>
+    <id>https://blogtech.top/2019/10/07/docker安装mysql搭建主从/</id>
     <published>2019-10-07T14:09:40.000Z</published>
     <updated>2019-10-07T14:46:49.342Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><p>docker search mysql:5.7</p><h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>docker pull mysql:5.7</p><h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><h3 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h3><p><img src="/.com//markdown-img-paste-20190926144820868.png" alt><br><img src="/.com//10/07/docker安装mysql搭建主从/markdown-img-paste-20190926144820868.png"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><p>docker search mysql:5.7</p><h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>docker pull mysql:5.7</p><h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><h3 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h3><p><img src="/.top//markdown-img-paste-20190926144820868.png" alt><br><img src="/.top//10/07/docker安装mysql搭建主从/markdown-img-paste-20190926144820868.png"></p>]]></content>
     
     <summary type="html">
     
@@ -36,19 +36,19 @@
     </summary>
     
     
-      <category term="docker" scheme="http://yoursite.com/categories/docker/"/>
+      <category term="docker" scheme="https://blogtech.top/categories/docker/"/>
     
     
-      <category term="docker" scheme="http://yoursite.com/tags/docker/"/>
+      <category term="docker" scheme="https://blogtech.top/tags/docker/"/>
     
-      <category term="虚拟化" scheme="http://yoursite.com/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+      <category term="虚拟化" scheme="https://blogtech.top/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/09/27/hello-world/"/>
-    <id>http://yoursite.com/2019/09/27/hello-world/</id>
+    <link href="https://blogtech.top/2019/09/27/hello-world/"/>
+    <id>https://blogtech.top/2019/09/27/hello-world/</id>
     <published>2019-09-27T10:12:53.966Z</published>
     <updated>2019-09-27T10:12:53.967Z</updated>
     
