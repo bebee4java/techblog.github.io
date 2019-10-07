@@ -279,7 +279,7 @@
                 
               
 
-              <time title="创建时间：2019-10-07 22:09:40 / 修改时间：23:07:25" itemprop="dateCreated datePublished" datetime="2019-10-07T22:09:40+08:00">2019-10-07</time>
+              <time title="创建时间：2019-10-07 22:09:40 / 修改时间：23:22:25" itemprop="dateCreated datePublished" datetime="2019-10-07T22:09:40+08:00">2019-10-07</time>
             </span>
           
             
@@ -313,7 +313,21 @@
       
           <h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><p>docker search mysql:5.7</p>
 <h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>docker pull mysql:5.7</p>
-<h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><h3 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h3><p><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926144820868.png" alt></p>
+<h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><h3 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h3><p><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20191007232046365.png" alt></p>
+<h4 id="master配置文件"><a href="#master配置文件" class="headerlink" title="master配置文件"></a>master配置文件</h4><p>vim master/conf/my.cnf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server_id = 1</span><br><span class="line">log-bin= mysql-bin</span><br><span class="line">read-only=0</span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line">replicate-ignore-db=sys</span><br><span class="line">replicate-ignore-db=information_schema</span><br><span class="line">replicate-ignore-db=performance_schema</span><br></pre></td></tr></table></figure></p>
+<h4 id="slave配置文件"><a href="#slave配置文件" class="headerlink" title="slave配置文件"></a>slave配置文件</h4><p>vim slave/conf/my.cnf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server_id = 2</span><br><span class="line">log-bin= mysql-bin</span><br><span class="line">log_slave_updates=1</span><br><span class="line">read-only=1</span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line">replicate-ignore-db=sys</span><br><span class="line">replicate-ignore-db=information_schema</span><br><span class="line">replicate-ignore-db=performance_schema</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注：从库还需要添加一个参数：log-slave-updates，log-slave-updates参数默认是关闭的状态，如果不手动设置，那么bin-log只会记录直接在主库上执行的SQL语句，由replication机制的SQL线程读取relay-log而执行的SQL语句并不会记录到bin-log，那么就无法实现从库binlog的实时同步。</p>
+</blockquote>
+<h3 id="运行mysql-master"><a href="#运行mysql-master" class="headerlink" title="运行mysql-master"></a>运行mysql-master</h3><p>docker run —name mastermysql \<br>-p 3307:3306 \<br>-e MYSQL_ROOT_PASSWORD=123456 \<br>-v ~/opt/docker/mysql/master/data:/var/lib/mysql \<br>-v ~/opt/docker/mysql/master/conf/my.cnf:/etc/mysql/my.cnf \<br>-d mysql:5.7</p>
+<h3 id="运行mysql-salve"><a href="#运行mysql-salve" class="headerlink" title="运行mysql-salve"></a>运行mysql-salve</h3><p>docker run —name slavemysql \<br>-p 3308:3306 \<br>-e MYSQL_ROOT_PASSWORD=123456 \<br>-v ~/opt/docker/mysql/slave/data:/var/lib/mysql \<br>-v ~/opt/docker/mysql/slave/conf/my.cnf:/etc/mysql/my.cnf \<br>-d mysql:5.7</p>
+<h2 id="查看docker镜像运行情况"><a href="#查看docker镜像运行情况" class="headerlink" title="查看docker镜像运行情况"></a>查看docker镜像运行情况</h2><p>docker ps<br><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115002849.png" alt></p>
+<h2 id="进入master容器"><a href="#进入master容器" class="headerlink" title="进入master容器"></a>进入master容器</h2><p>docker exec -it mastermysql bash</p>
+<h2 id="进入mysql"><a href="#进入mysql" class="headerlink" title="进入mysql"></a>进入mysql</h2><p>root@a77371ae40bd:/# mysql -uroot -p123456</p>
+<h2 id="查看master状态"><a href="#查看master状态" class="headerlink" title="查看master状态"></a>查看master状态</h2><p>mysql&gt; show master status;<br><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115058346.png" alt></p>
+<h2 id="创建binlog用户，授权"><a href="#创建binlog用户，授权" class="headerlink" title="创建binlog用户，授权"></a>创建binlog用户，授权</h2><h3 id="创建binlog用户密码为binlog"><a href="#创建binlog用户密码为binlog" class="headerlink" title="创建binlog用户密码为binlog"></a>创建binlog用户密码为binlog</h3><p>CREATE USER ‘binlog’@’%’ IDENTIFIED BY ‘binlog’;</p>
+<h3 id="授权binlog用户拥有binlog库所有表的所有权限"><a href="#授权binlog用户拥有binlog库所有表的所有权限" class="headerlink" title="授权binlog用户拥有binlog库所有表的所有权限"></a>授权binlog用户拥有binlog库所有表的所有权限</h3><p>GRANT ALL ON binlog.* TO ‘binlog’@’%’;</p>
+<h3 id="授予用户-binlog-REPLICATION-SLAVE-权限和-REPLICATION-CLIENT-权限，用于在主从库之间同步数据。"><a href="#授予用户-binlog-REPLICATION-SLAVE-权限和-REPLICATION-CLIENT-权限，用于在主从库之间同步数据。" class="headerlink" title="授予用户 binlog REPLICATION SLAVE 权限和 REPLICATION CLIENT 权限，用于在主从库之间同步数据。"></a>授予用户 binlog REPLICATION SLAVE 权限和 REPLICATION CLIENT 权限，用于在主从库之间同步数据。</h3><p>GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO ‘binlog’@’%’;</p>
 
         
       
