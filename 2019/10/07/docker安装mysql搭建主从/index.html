@@ -67,7 +67,10 @@
 <meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20191007232046365.png">
 <meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115002849.png">
 <meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115058346.png">
-<meta property="og:updated_time" content="2019-10-07T15:22:25.810Z">
+<meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115222899.png">
+<meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115401342.png">
+<meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115534116.png">
+<meta property="og:updated_time" content="2019-10-07T15:33:24.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker安装mysql搭建主从">
 <meta name="twitter:description" content="查看镜像docker search mysql:5.7 拉取镜像docker pull mysql:5.7 运行mysql容器建立配置文件 master配置文件vim master/conf/my.cnf12345678[mysqld]server_id = 1log-bin= mysql-binread-only=0replicate-ignore-db=mysqlreplicate-ignor">
@@ -284,7 +287,7 @@
                 
               
 
-              <time title="创建时间：2019-10-07 22:09:40 / 修改时间：23:22:25" itemprop="dateCreated datePublished" datetime="2019-10-07T22:09:40+08:00">2019-10-07</time>
+              <time title="创建时间：2019-10-07 22:09:40 / 修改时间：23:33:24" itemprop="dateCreated datePublished" datetime="2019-10-07T22:09:40+08:00">2019-10-07</time>
             </span>
           
             
@@ -333,6 +336,32 @@
 <h2 id="创建binlog用户，授权"><a href="#创建binlog用户，授权" class="headerlink" title="创建binlog用户，授权"></a>创建binlog用户，授权</h2><h3 id="创建binlog用户密码为binlog"><a href="#创建binlog用户密码为binlog" class="headerlink" title="创建binlog用户密码为binlog"></a>创建binlog用户密码为binlog</h3><p>CREATE USER ‘binlog’@’%’ IDENTIFIED BY ‘binlog’;</p>
 <h3 id="授权binlog用户拥有binlog库所有表的所有权限"><a href="#授权binlog用户拥有binlog库所有表的所有权限" class="headerlink" title="授权binlog用户拥有binlog库所有表的所有权限"></a>授权binlog用户拥有binlog库所有表的所有权限</h3><p>GRANT ALL ON binlog.* TO ‘binlog’@’%’;</p>
 <h3 id="授予用户-binlog-REPLICATION-SLAVE-权限和-REPLICATION-CLIENT-权限，用于在主从库之间同步数据。"><a href="#授予用户-binlog-REPLICATION-SLAVE-权限和-REPLICATION-CLIENT-权限，用于在主从库之间同步数据。" class="headerlink" title="授予用户 binlog REPLICATION SLAVE 权限和 REPLICATION CLIENT 权限，用于在主从库之间同步数据。"></a>授予用户 binlog REPLICATION SLAVE 权限和 REPLICATION CLIENT 权限，用于在主从库之间同步数据。</h3><p>GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO ‘binlog’@’%’;</p>
+<h2 id="进入salve容器"><a href="#进入salve容器" class="headerlink" title="进入salve容器"></a>进入salve容器</h2><p>docker exec -it slavemysql bash</p>
+<h2 id="在Slave中进入mysql，执行"><a href="#在Slave中进入mysql，执行" class="headerlink" title="在Slave中进入mysql，执行:"></a>在Slave中进入mysql，执行:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CHANGE MASTER TO master_host = &apos;172.17.0.2&apos;,</span><br><span class="line">master_user = &apos;binlog&apos;,</span><br><span class="line">master_password = &apos;binlog&apos;,</span><br><span class="line">master_port = 3306,</span><br><span class="line">master_log_file = &apos;mysql-bin.000003&apos;,</span><br><span class="line">master_log_pos = 154,</span><br><span class="line">master_connect_retry = 30;</span><br></pre></td></tr></table></figure>
+<p><strong>注：</strong></p>
+<blockquote>
+<p>master_host ：Master 的地址，指的是容器的独立ip, 可以通过下面命令查询：</p>
+</blockquote>
+<p><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115222899.png" alt></p>
+<blockquote>
+<p>master_port：Master 的端口号，指的是容器的端口号</p>
+<p>master_user：用于数据同步的用户</p>
+<p>master_password：用于同步的用户的密码</p>
+<p>master_log_file：指定 Slave 从哪个日志文件开始复制数据，即上文中提到的 File 字段的值（主库记录的值）</p>
+<p>master_log_pos：从哪个 Position 开始读，即上文中提到的 Position 字段的值（主库的pos值）</p>
+<p>master_connect_retry：如果连接失败，重试的时间间隔，单位是秒，默认是 60 秒</p>
+</blockquote>
+<h2 id="查询主从同步状态"><a href="#查询主从同步状态" class="headerlink" title="查询主从同步状态:"></a>查询主从同步状态:</h2><p>show slave status \G;</p>
+<p><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115401342.png" alt></p>
+<h2 id="开启主从复制过程"><a href="#开启主从复制过程" class="headerlink" title="开启主从复制过程"></a>开启主从复制过程</h2><p>start slave;</p>
+<p>再次查询主从同步状态 show slave status \G;<br><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115534116.png" alt></p>
+<h2 id="在master库新建binlog库-mlsql-binlog表进行同步测试："><a href="#在master库新建binlog库-mlsql-binlog表进行同步测试：" class="headerlink" title="在master库新建binlog库 mlsql_binlog表进行同步测试："></a>在master库新建binlog库 mlsql_binlog表进行同步测试：</h2><p>create database binlog;</p>
+<p>use binlog;</p>
+<p>CREATE TABLE <code>mlsql_binlog</code> ( \<br>  <code>id</code> int(11) unsigned NOT NULL AUTO_INCREMENT, \<br>  <code>log</code> varchar(200) DEFAULT NULL, \<br>  PRIMARY KEY (<code>id</code>) \<br>) CHARSET=utf8;</p>
+<p>insert into <code>mlsql_binlog</code> (<code>id</code>, <code>log</code>) values(1, ‘hello’);</p>
+<blockquote>
+<p>友情链接：<a href="https://learnku.com/articles/30439" target="_blank" rel="noopener">https://learnku.com/articles/30439</a></p>
+</blockquote>
 
     </div>
 
@@ -420,7 +449,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看镜像"><span class="nav-number">1.</span> <span class="nav-text">查看镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉取镜像"><span class="nav-number">2.</span> <span class="nav-text">拉取镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行mysql容器"><span class="nav-number">3.</span> <span class="nav-text">运行mysql容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立配置文件"><span class="nav-number">3.1.</span> <span class="nav-text">建立配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#master配置文件"><span class="nav-number">3.1.1.</span> <span class="nav-text">master配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slave配置文件"><span class="nav-number">3.1.2.</span> <span class="nav-text">slave配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行mysql-master"><span class="nav-number">3.2.</span> <span class="nav-text">运行mysql-master</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行mysql-salve"><span class="nav-number">3.3.</span> <span class="nav-text">运行mysql-salve</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看docker镜像运行情况"><span class="nav-number">4.</span> <span class="nav-text">查看docker镜像运行情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入master容器"><span class="nav-number">5.</span> <span class="nav-text">进入master容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入mysql"><span class="nav-number">6.</span> <span class="nav-text">进入mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看master状态"><span class="nav-number">7.</span> <span class="nav-text">查看master状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建binlog用户，授权"><span class="nav-number">8.</span> <span class="nav-text">创建binlog用户，授权</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建binlog用户密码为binlog"><span class="nav-number">8.1.</span> <span class="nav-text">创建binlog用户密码为binlog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#授权binlog用户拥有binlog库所有表的所有权限"><span class="nav-number">8.2.</span> <span class="nav-text">授权binlog用户拥有binlog库所有表的所有权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#授予用户-binlog-REPLICATION-SLAVE-权限和-REPLICATION-CLIENT-权限，用于在主从库之间同步数据。"><span class="nav-number">8.3.</span> <span class="nav-text">授予用户 binlog REPLICATION SLAVE 权限和 REPLICATION CLIENT 权限，用于在主从库之间同步数据。</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看镜像"><span class="nav-number">1.</span> <span class="nav-text">查看镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉取镜像"><span class="nav-number">2.</span> <span class="nav-text">拉取镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行mysql容器"><span class="nav-number">3.</span> <span class="nav-text">运行mysql容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立配置文件"><span class="nav-number">3.1.</span> <span class="nav-text">建立配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#master配置文件"><span class="nav-number">3.1.1.</span> <span class="nav-text">master配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slave配置文件"><span class="nav-number">3.1.2.</span> <span class="nav-text">slave配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行mysql-master"><span class="nav-number">3.2.</span> <span class="nav-text">运行mysql-master</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行mysql-salve"><span class="nav-number">3.3.</span> <span class="nav-text">运行mysql-salve</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看docker镜像运行情况"><span class="nav-number">4.</span> <span class="nav-text">查看docker镜像运行情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入master容器"><span class="nav-number">5.</span> <span class="nav-text">进入master容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入mysql"><span class="nav-number">6.</span> <span class="nav-text">进入mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看master状态"><span class="nav-number">7.</span> <span class="nav-text">查看master状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建binlog用户，授权"><span class="nav-number">8.</span> <span class="nav-text">创建binlog用户，授权</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建binlog用户密码为binlog"><span class="nav-number">8.1.</span> <span class="nav-text">创建binlog用户密码为binlog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#授权binlog用户拥有binlog库所有表的所有权限"><span class="nav-number">8.2.</span> <span class="nav-text">授权binlog用户拥有binlog库所有表的所有权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#授予用户-binlog-REPLICATION-SLAVE-权限和-REPLICATION-CLIENT-权限，用于在主从库之间同步数据。"><span class="nav-number">8.3.</span> <span class="nav-text">授予用户 binlog REPLICATION SLAVE 权限和 REPLICATION CLIENT 权限，用于在主从库之间同步数据。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入salve容器"><span class="nav-number">9.</span> <span class="nav-text">进入salve容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Slave中进入mysql，执行"><span class="nav-number">10.</span> <span class="nav-text">在Slave中进入mysql，执行:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询主从同步状态"><span class="nav-number">11.</span> <span class="nav-text">查询主从同步状态:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启主从复制过程"><span class="nav-number">12.</span> <span class="nav-text">开启主从复制过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在master库新建binlog库-mlsql-binlog表进行同步测试："><span class="nav-number">13.</span> <span class="nav-text">在master库新建binlog库 mlsql_binlog表进行同步测试：</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
