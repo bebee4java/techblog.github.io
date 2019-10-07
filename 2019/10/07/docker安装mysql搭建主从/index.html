@@ -70,7 +70,7 @@
 <meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115222899.png">
 <meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115401342.png">
 <meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115534116.png">
-<meta property="og:updated_time" content="2019-10-07T15:40:15.871Z">
+<meta property="og:updated_time" content="2019-10-07T15:45:53.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker安装mysql搭建主从">
 <meta name="twitter:description" content="查看镜像docker search mysql:5.7 拉取镜像docker pull mysql:5.7 运行mysql容器建立配置文件 master配置文件vim master/conf/my.cnf12345678[mysqld]server_id = 1log-bin= mysql-binread-only=0replicate-ignore-db=mysqlreplicate-ignor">
@@ -287,7 +287,7 @@
                 
               
 
-              <time title="创建时间：2019-10-07 22:09:40 / 修改时间：23:40:15" itemprop="dateCreated datePublished" datetime="2019-10-07T22:09:40+08:00">2019-10-07</time>
+              <time title="创建时间：2019-10-07 22:09:40 / 修改时间：23:45:53" itemprop="dateCreated datePublished" datetime="2019-10-07T22:09:40+08:00">2019-10-07</time>
             </span>
           
             
@@ -341,7 +341,7 @@
 <p><strong>注：</strong></p>
 <blockquote>
 <p>master_host ：Master 的地址，指的是容器的独立ip, 可以通过下面命令查询：</p>
-<p>docker inspect —format=’‘ 容器名称 | 容器id</p>
+ docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器名称 | 容器id 
 </blockquote>
 <p><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115222899.png" alt></p>
 <blockquote>
