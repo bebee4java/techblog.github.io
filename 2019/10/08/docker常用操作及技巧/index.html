@@ -65,7 +65,7 @@
 <meta property="og:site_name" content="tech-blog">
 <meta property="og:description" content="Dockerfile命令 官网介绍：https://docs.docker.com/engine/reference/builder/   FROM FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。  MAINTAINER MAINTAINER &amp;lt;name&amp;gt; 用来指定维">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-08T10:52:22.718Z">
+<meta property="og:updated_time" content="2019-10-08T11:04:47.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker常用操作及技巧">
 <meta name="twitter:description" content="Dockerfile命令 官网介绍：https://docs.docker.com/engine/reference/builder/   FROM FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。  MAINTAINER MAINTAINER &amp;lt;name&amp;gt; 用来指定维">
@@ -281,7 +281,7 @@
                 
               
 
-              <time title="创建时间：2019-10-08 17:52:24 / 修改时间：18:52:22" itemprop="dateCreated datePublished" datetime="2019-10-08T17:52:24+08:00">2019-10-08</time>
+              <time title="创建时间：2019-10-08 17:52:24 / 修改时间：19:04:47" itemprop="dateCreated datePublished" datetime="2019-10-08T17:52:24+08:00">2019-10-08</time>
             </span>
           
             
@@ -406,6 +406,10 @@
 <li>停止/启动/杀死/重启一个容器：<code>docker stop/start/kill/restart CONTAINER_ID/CONTAINER_NAME</code></li>
 <li>进入容器：<code>docker exec -it CONTAINER_ID /bin/bash</code><blockquote>
 <p>docker exec ：在运行的容器中执行命令<br>-d :分离模式: 在后台运行<br>-i :即使没有附加也保持STDIN（标准输入） 打开,以交互运行容器，通常与 -t 同时使用；<br>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
+</blockquote>
+</li>
+<li>运行容器：<code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code><blockquote>
+<p>OPTIONS说明：<br>   -a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；<br>   -d: 后台运行容器，并返回容器ID；<br>   -i: 以交互模式运行容器，通常与 -t 同时使用；<br>   -P: 随机端口映射，容器内部端口随机映射到主机的高端口<br>   -p: 指定端口映射，格式为：主机(宿主)端口:容器端口<br>   -t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；<br>   —name=”nginx-lb”: 为容器指定一个名称；<br>   —dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致；<br>   —dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致；<br>   -h “mars”: 指定容器的hostname；<br>   -e username=”ritchie”: 设置环境变量；<br>   —env-file=[]: 从指定文件读入环境变量；<br>   —cpuset=”0-2” or —cpuset=”0,1,2”: 绑定容器到指定CPU运行；<br>   -m :设置容器使用内存最大值；<br>   —net=”bridge”: 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；<br>   —link=[]: 添加链接到另一个容器；<br>   —expose=[]: 开放一个端口或一组端口；<br>   —volume , -v: 绑定一个卷</p>
 </blockquote>
 </li>
 </ol>
