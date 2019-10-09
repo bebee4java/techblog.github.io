@@ -335,7 +335,55 @@
       
           <h2 id="Dockerfile命令"><a href="#Dockerfile命令" class="headerlink" title="Dockerfile命令"></a>Dockerfile命令</h2><blockquote>
 <p>官网介绍：<a href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder/</a></p>
-</blockquote>
+</blockquote><ol>
+<li><p>FROM</p>
+<p><code>FROM &lt;image&gt;:&lt;tag&gt;</code></p>
+<p> 用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。</p>
+</li>
+<li><p>MAINTAINER</p>
+<p><code>MAINTAINER &lt;name&gt;</code></p>
+<p>用来指定维护者的姓名和联系方式。</p>
+</li>
+<li><p>RUN</p>
+<p><code>RUN &lt;command&gt; 或 RUN [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code></p>
+<p>每条 RUN 指令将在当前镜像基础上执行指定命令，并提交为新的镜像。</p>
+</li>
+<li><p>ADD</p>
+<p><code>ADD &lt;src&gt; &lt;dest&gt;</code></p>
+<p>将文件复制到文件：是相对被构建的源目录的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，是容器中的绝对路径。</p>
+</li>
+<li><p>COPY</p>
+<p><code>COPY &lt;src&gt; &lt;dest&gt;</code></p>
+<p>复制本地主机的（为Dockerfile所在目录的相对路径）到容器中的,与ADD指令差不多</p>
+</li>
+<li><p>ENTRYPOINT</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENTRYPOINT [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] ：推荐使用的<span class="built_in">exec</span>形式</span><br><span class="line">ENTRYPOINT <span class="built_in">command</span> param1 param2 ：shell 形式</span><br></pre></td></tr></table></figure>
+<p>配置容器启动后执行的命令，并且不可被 docker run 提供的参数覆盖。一个 Dockerfile 中只能有一个 ENTRYPOINT，如果有多个，则最后一个生效。</p>
+</li>
+<li><p>CMD</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMD [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] 使用<span class="built_in">exec</span>执行，推荐方式；</span><br><span class="line">CMD <span class="built_in">command</span> param1 param2 在/bin/sh 中执行，提供给需要交互的应用；</span><br><span class="line">CMD [<span class="string">"param1"</span>,<span class="string">"param2"</span>]提供给ENTRYPOINT 的默认参数；</span><br></pre></td></tr></table></figure>
+<p>指定启动容器时执行的命令，每个 Dockerfile 只能有一条 CMD 命令。如果指定了多条命令，只有最后一条会被执行。如果用户启动容器时候指定了运行的命令，则会覆盖掉 CMD 指定的命令。</p>
+</li>
+<li><p>WORKDIR</p>
+<p><code>WORKDIR /path/to/workdir</code></p>
+<p>为后续的 RUN、CMD、ENTRYPOINT 指令配置工作目录。可以使用多个 WORKDIR 指令，后续命令如果参数是相对路径，则会基于之前命令指定的路径。例如：<br>WORKDIR /a<br>WORKDIR b<br>WORKDIR c<br>RUN pwd<br>则最终路径为 /a/b/c 。</p>
+</li>
+<li><p>EXPOSE</p>
+<p><code>EXPOSE &lt;port&gt; [&lt;port&gt;...]</code></p>
+<p>告诉 Docker 服务端容器暴露的端口号，供互联系统使用。例如：EXPOSE 8080 3000，开放 8080 和 3000 端口。</p>
+</li>
+<li><p>ENV</p>
+<p><code>ENV &lt;key&gt; &lt;value&gt;</code><br>指定一个环境变量，会被后续 RUN 指令使用，并在容器运行时保持。</p>
+</li>
+<li><p>VOLUME</p>
+<p><code>VOLUME [&quot;/data&quot;]</code></p>
+<p>创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存放数据库和需要保持的数据等。</p>
+</li>
+<li><p>USER</p>
+<p><code>USER &lt;UID/Username&gt;</code></p>
+<p>为容器内指定 CMD RUN ENTRYPOINT 命令运行时的用户名或UID。</p>
+</li>
+</ol>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -450,7 +498,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><p>docker search mysql:5.7</p><h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>docker pull mysql:5.7</p>
+          <h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><p>docker search mysql:5.7</p><h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>docker pull mysql:5.7</p><h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><h3 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h3><p><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20191007232046365.png" alt></p><h4 id="master配置文件"><a href="#master配置文件" class="headerlink" title="master配置文件"></a>master配置文件</h4><p>vim master/conf/my.cnf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server_id = 1</span><br><span class="line">log-bin= mysql-bin</span><br><span class="line">read-only=0</span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line">replicate-ignore-db=sys</span><br><span class="line">replicate-ignore-db=information_schema</span><br><span class="line">replicate-ignore-db=performance_schema</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
             <div class="post-button text-center">
