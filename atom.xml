@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blogtech.top/"/>
-  <updated>2019-10-09T14:21:54.757Z</updated>
+  <updated>2019-10-10T12:48:49.765Z</updated>
   <id>https://blogtech.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>conda使用技巧总结</title>
+    <link href="https://blogtech.top/2019/10/10/conda%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93/"/>
+    <id>https://blogtech.top/2019/10/10/conda使用技巧总结/</id>
+    <published>2019-10-10T12:35:24.000Z</published>
+    <updated>2019-10-10T12:48:49.765Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><p>创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name py35 python=<span class="number">3.5</span></span><br></pre></td></tr></table></figure></p><a id="more"></a><h2 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h2><p>激活py35环境<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source activate py35</span><br></pre></td></tr></table></figure></p><h2 id="返回主环境"><a href="#返回主环境" class="headerlink" title="返回主环境"></a>返回主环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source deactivate py35</span><br></pre></td></tr></table></figure><h2 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h2><p>删除一个已有的环境<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove --name py35 --all</span><br></pre></td></tr></table></figure></p><h2 id="查看系统中的所有环境"><a href="#查看系统中的所有环境" class="headerlink" title="查看系统中的所有环境"></a>查看系统中的所有环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info -e</span><br></pre></td></tr></table></figure><h2 id="安装库"><a href="#安装库" class="headerlink" title="安装库"></a>安装库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install numpy</span><br></pre></td></tr></table></figure><h2 id="查看已经安装的库"><a href="#查看已经安装的库" class="headerlink" title="查看已经安装的库"></a>查看已经安装的库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure><h2 id="搜索package的信息"><a href="#搜索package的信息" class="headerlink" title="搜索package的信息"></a>搜索package的信息</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda search numpy</span><br></pre></td></tr></table></figure><h2 id="安装package到指定的环境"><a href="#安装package到指定的环境" class="headerlink" title="安装package到指定的环境"></a>安装package到指定的环境</h2><p>如果不用-n指定环境名称，则被安装在当前活跃环境，也可以通过-c指定通过某个channel安装<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -n py35 numpy</span><br></pre></td></tr></table></figure></p><h2 id="更新package"><a href="#更新package" class="headerlink" title="更新package"></a>更新package</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda update -n py35 numpy</span><br></pre></td></tr></table></figure><h2 id="删除package"><a href="#删除package" class="headerlink" title="删除package"></a>删除package</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n py35 numpy</span><br></pre></td></tr></table></figure><h2 id="设置国内镜像，加速conda"><a href="#设置国内镜像，加速conda" class="headerlink" title="设置国内镜像，加速conda"></a>设置国内镜像，加速conda</h2><p>在User主目录下生成.condarc文件，删掉channels下面的 -defaults一行,使其不再访问默认channel<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line"></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line"></span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;创建环境&quot;&gt;&lt;a href=&quot;#创建环境&quot; class=&quot;headerlink&quot; title=&quot;创建环境&quot;&gt;&lt;/a&gt;创建环境&lt;/h2&gt;&lt;p&gt;创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;conda create --name py35 python=&lt;span class=&quot;number&quot;&gt;3.5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://blogtech.top/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://blogtech.top/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql创建用户与授权</title>

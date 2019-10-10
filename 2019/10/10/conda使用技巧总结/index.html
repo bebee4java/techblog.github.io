@@ -57,19 +57,19 @@
   };
 </script>
 
-  <meta name="description" content="Dockerfile命令 官网介绍：https://docs.docker.com/engine/reference/builder/  FROM FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。  MAINTAINER MAINTAINER &amp;lt;name&amp;gt; 用来指定维护">
-<meta name="keywords" content="docker,虚拟化">
+  <meta name="description" content="创建环境创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）1conda create --name py35 python=3.5">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker常用操作及技巧">
-<meta property="og:url" content="https://blogtech.top/2019/10/08/docker常用操作及技巧/index.html">
+<meta property="og:title" content="conda使用技巧总结">
+<meta property="og:url" content="https://blogtech.top/2019/10/10/conda使用技巧总结/index.html">
 <meta property="og:site_name" content="JAVA永不为奴!">
-<meta property="og:description" content="Dockerfile命令 官网介绍：https://docs.docker.com/engine/reference/builder/  FROM FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。  MAINTAINER MAINTAINER &amp;lt;name&amp;gt; 用来指定维护">
+<meta property="og:description" content="创建环境创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）1conda create --name py35 python=3.5">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-08T11:04:47.914Z">
+<meta property="og:updated_time" content="2019-10-10T12:48:49.765Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="docker常用操作及技巧">
-<meta name="twitter:description" content="Dockerfile命令 官网介绍：https://docs.docker.com/engine/reference/builder/  FROM FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。  MAINTAINER MAINTAINER &amp;lt;name&amp;gt; 用来指定维护">
-  <link rel="canonical" href="https://blogtech.top/2019/10/08/docker常用操作及技巧/">
+<meta name="twitter:title" content="conda使用技巧总结">
+<meta name="twitter:description" content="创建环境创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）1conda create --name py35 python=3.5">
+  <link rel="canonical" href="https://blogtech.top/2019/10/10/conda使用技巧总结/">
 
 
 <script id="page-configurations">
@@ -109,7 +109,7 @@
   padding: 0 10px 0 14px;
 }
 </style>
-  <title>docker常用操作及技巧 | JAVA永不为奴!</title>
+  <title>conda使用技巧总结 | JAVA永不为奴!</title>
   
 
 
@@ -279,7 +279,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://blogtech.top/2019/10/08/docker常用操作及技巧/">
+    <link itemprop="mainEntityOfPage" href="https://blogtech.top/2019/10/10/conda使用技巧总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bebee4java">
@@ -291,7 +291,7 @@
       <meta itemprop="name" content="JAVA永不为奴!">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">docker常用操作及技巧
+        <h1 class="post-title" itemprop="name headline">conda使用技巧总结
 
           
         </h1>
@@ -307,7 +307,7 @@
                 
               
 
-              <time title="创建时间：2019-10-08 17:52:24 / 修改时间：19:04:47" itemprop="dateCreated datePublished" datetime="2019-10-08T17:52:24+08:00">2019-10-08</time>
+              <time title="创建时间：2019-10-10 20:35:24 / 修改时间：20:48:49" itemprop="dateCreated datePublished" datetime="2019-10-10T20:35:24+08:00">2019-10-10</time>
             </span>
           
             
@@ -320,7 +320,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
 
                 
                 
@@ -345,7 +345,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>3.5k</span>
+              <span>758</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -355,7 +355,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
           
 
@@ -368,106 +368,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Dockerfile命令"><a href="#Dockerfile命令" class="headerlink" title="Dockerfile命令"></a>Dockerfile命令</h2><blockquote>
-<p>官网介绍：<a href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder/</a></p>
-</blockquote><ol>
-<li><p>FROM</p>
-<p><code>FROM &lt;image&gt;:&lt;tag&gt;</code></p>
-<p> 用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。</p>
-</li>
-<li><p>MAINTAINER</p>
-<p><code>MAINTAINER &lt;name&gt;</code></p>
-<p>用来指定维护者的姓名和联系方式。</p>
-</li>
-<li><p>RUN</p>
-<p><code>RUN &lt;command&gt; 或 RUN [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code></p>
-<p>每条 RUN 指令将在当前镜像基础上执行指定命令，并提交为新的镜像。</p>
-</li>
-<li><p>ADD</p>
-<p><code>ADD &lt;src&gt; &lt;dest&gt;</code></p>
-<p>将文件复制到文件：是相对被构建的源目录的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，是容器中的绝对路径。</p>
-</li>
-<li><p>COPY</p>
-<p><code>COPY &lt;src&gt; &lt;dest&gt;</code></p>
-<p>复制本地主机的（为Dockerfile所在目录的相对路径）到容器中的,与ADD指令差不多</p>
-</li>
-<li><p>ENTRYPOINT</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENTRYPOINT [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] ：推荐使用的<span class="built_in">exec</span>形式</span><br><span class="line">ENTRYPOINT <span class="built_in">command</span> param1 param2 ：shell 形式</span><br></pre></td></tr></table></figure>
-<p>配置容器启动后执行的命令，并且不可被 docker run 提供的参数覆盖。一个 Dockerfile 中只能有一个 ENTRYPOINT，如果有多个，则最后一个生效。</p>
-</li>
-<li><p>CMD</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMD [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] 使用<span class="built_in">exec</span>执行，推荐方式；</span><br><span class="line">CMD <span class="built_in">command</span> param1 param2 在/bin/sh 中执行，提供给需要交互的应用；</span><br><span class="line">CMD [<span class="string">"param1"</span>,<span class="string">"param2"</span>]提供给ENTRYPOINT 的默认参数；</span><br></pre></td></tr></table></figure>
-<p>指定启动容器时执行的命令，每个 Dockerfile 只能有一条 CMD 命令。如果指定了多条命令，只有最后一条会被执行。如果用户启动容器时候指定了运行的命令，则会覆盖掉 CMD 指定的命令。</p>
-</li>
-<li><p>WORKDIR</p>
-<p><code>WORKDIR /path/to/workdir</code></p>
-<p>为后续的 RUN、CMD、ENTRYPOINT 指令配置工作目录。可以使用多个 WORKDIR 指令，后续命令如果参数是相对路径，则会基于之前命令指定的路径。例如：<br>WORKDIR /a<br>WORKDIR b<br>WORKDIR c<br>RUN pwd<br>则最终路径为 /a/b/c 。</p>
-</li>
-<li><p>EXPOSE</p>
-<p><code>EXPOSE &lt;port&gt; [&lt;port&gt;...]</code></p>
-<p>告诉 Docker 服务端容器暴露的端口号，供互联系统使用。例如：EXPOSE 8080 3000，开放 8080 和 3000 端口。</p>
-</li>
-<li><p>ENV</p>
-<p><code>ENV &lt;key&gt; &lt;value&gt;</code><br>指定一个环境变量，会被后续 RUN 指令使用，并在容器运行时保持。</p>
-</li>
-<li><p>VOLUME</p>
-<p><code>VOLUME [&quot;/data&quot;]</code></p>
-<p>创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存放数据库和需要保持的数据等。</p>
-</li>
-<li><p>USER</p>
-<p><code>USER &lt;UID/Username&gt;</code></p>
-<p>为容器内指定 CMD RUN ENTRYPOINT 命令运行时的用户名或UID。</p>
-</li>
-</ol><a id="more"></a>
-
-<h2 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h2><blockquote>
-<p>官网介绍：<a href="https://docs.docker.com/engine/reference/commandline/docker/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/commandline/docker/</a></p>
-</blockquote>
-<h3 id="镜像相关"><a href="#镜像相关" class="headerlink" title="镜像相关"></a>镜像相关</h3><ol>
-<li>查看本地仓库的镜像：<code>docker images</code></li>
-<li>拉取远程仓库镜像：<code>docker pull REPOSITORY:TAG</code></li>
-<li>将本地镜像推送到远程仓库：<code>docker push REPOSITORY:TAG</code><blockquote>
-<p>一般需要三步：<br>A. 先将已有镜像打标签:<code>docker tag IMAGE_ID REPOSITORY:TAG</code> 需要tag为远程的仓库地址<br>B. 登录远程仓库：<code>docker login –username=USERNAME REPOSITORY_REGOIN</code><br>C. 推送镜像到远程仓库：<code>docker push REPOSITORY:TAG</code></p>
-</blockquote>
-</li>
-<li>使用Dockerfile构建镜像: <code>docker build -t REPOSITORY:TAG .</code><blockquote>
-<p>.点表示当前目录，默认会找当前目录下的Dockerfile进行构建，也可以通过<code>-f</code>指定Dockerfile：<code>docker build -f /path/Dockerfile -t REPOSITORY:TAG .</code></p>
-</blockquote>
-</li>
-<li>删除镜像：<code>docker rmi IMAGE_ID/ REPOSITORY:TAG</code><blockquote>
-<p>强制删除：<code>docker rmi -f IMAGE_ID</code></p>
-</blockquote>
-</li>
-<li>删除untagged images：<code>docker rmi $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)</code></li>
-<li>删除全部image：<code>docker rmi $(docker images -q)</code></li>
-<li>删除所有不使用的镜像：<code>docker image prune --force --all</code> 或 <code>docker image prune -f -a</code></li>
-</ol>
-<h3 id="容器相关"><a href="#容器相关" class="headerlink" title="容器相关"></a>容器相关</h3><ol>
-<li>查看正在运行的容器：<code>docker ps</code></li>
-<li>列出所有容器ID：<code>docker ps -aq</code></li>
-<li>查看正在运行容器的日志：<code>docker logs -f CONTAINER_ID</code></li>
-<li>列出所有容器：<code>docker container list</code></li>
-<li>停止容器：<code>docker stop CONTAINER_ID</code><blockquote>
-<p>停止所有的container：<code>docker stop $(docker ps -a -q)</code></p>
-</blockquote>
-</li>
-<li>删除容器：<code>docker rm CONTAINER_ID</code><blockquote>
-<p>删除所有container：<code>docker rm $(docker ps -a -q)</code></p>
-</blockquote>
-</li>
-<li>从容器到宿主机复制：<code>docker cp CONTAINER:SRC_PATH DEST_PATH</code></li>
-<li>从宿主机到容器复制：<code>docker cp SRC_PATH CONTAINER:DEST_PATH</code></li>
-<li>删除所有停止的容器：<code>docker container prune</code></li>
-<li>停止/启动/杀死/重启一个容器：<code>docker stop/start/kill/restart CONTAINER_ID/CONTAINER_NAME</code></li>
-<li>进入容器：<code>docker exec -it CONTAINER_ID /bin/bash</code><blockquote>
-<p>docker exec ：在运行的容器中执行命令<br>-d :分离模式: 在后台运行<br>-i :即使没有附加也保持STDIN（标准输入） 打开,以交互运行容器，通常与 -t 同时使用；<br>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
-</blockquote>
-</li>
-<li>运行容器：<code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code><blockquote>
-<p>OPTIONS说明：<br>   -a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；<br>   -d: 后台运行容器，并返回容器ID；<br>   -i: 以交互模式运行容器，通常与 -t 同时使用；<br>   -P: 随机端口映射，容器内部端口随机映射到主机的高端口<br>   -p: 指定端口映射，格式为：主机(宿主)端口:容器端口<br>   -t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；<br>   —name=”nginx-lb”: 为容器指定一个名称；<br>   —dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致；<br>   —dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致；<br>   -h “mars”: 指定容器的hostname；<br>   -e username=”ritchie”: 设置环境变量；<br>   —env-file=[]: 从指定文件读入环境变量；<br>   —cpuset=”0-2” or —cpuset=”0,1,2”: 绑定容器到指定CPU运行；<br>   -m :设置容器使用内存最大值；<br>   —net=”bridge”: 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；<br>   —link=[]: 添加链接到另一个容器；<br>   —expose=[]: 开放一个端口或一组端口；<br>   —volume , -v: 绑定一个卷</p>
-</blockquote>
-</li>
-</ol>
+        <h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><p>创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name py35 python=<span class="number">3.5</span></span><br></pre></td></tr></table></figure></p><a id="more"></a>
+<h2 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h2><p>激活py35环境<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source activate py35</span><br></pre></td></tr></table></figure></p>
+<h2 id="返回主环境"><a href="#返回主环境" class="headerlink" title="返回主环境"></a>返回主环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source deactivate py35</span><br></pre></td></tr></table></figure>
+<h2 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h2><p>删除一个已有的环境<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove --name py35 --all</span><br></pre></td></tr></table></figure></p>
+<h2 id="查看系统中的所有环境"><a href="#查看系统中的所有环境" class="headerlink" title="查看系统中的所有环境"></a>查看系统中的所有环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info -e</span><br></pre></td></tr></table></figure>
+<h2 id="安装库"><a href="#安装库" class="headerlink" title="安装库"></a>安装库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install numpy</span><br></pre></td></tr></table></figure>
+<h2 id="查看已经安装的库"><a href="#查看已经安装的库" class="headerlink" title="查看已经安装的库"></a>查看已经安装的库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
+<h2 id="搜索package的信息"><a href="#搜索package的信息" class="headerlink" title="搜索package的信息"></a>搜索package的信息</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda search numpy</span><br></pre></td></tr></table></figure>
+<h2 id="安装package到指定的环境"><a href="#安装package到指定的环境" class="headerlink" title="安装package到指定的环境"></a>安装package到指定的环境</h2><p>如果不用-n指定环境名称，则被安装在当前活跃环境，也可以通过-c指定通过某个channel安装<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -n py35 numpy</span><br></pre></td></tr></table></figure></p>
+<h2 id="更新package"><a href="#更新package" class="headerlink" title="更新package"></a>更新package</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda update -n py35 numpy</span><br></pre></td></tr></table></figure>
+<h2 id="删除package"><a href="#删除package" class="headerlink" title="删除package"></a>删除package</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n py35 numpy</span><br></pre></td></tr></table></figure>
+<h2 id="设置国内镜像，加速conda"><a href="#设置国内镜像，加速conda" class="headerlink" title="设置国内镜像，加速conda"></a>设置国内镜像，加速conda</h2><p>在User主目录下生成.condarc文件，删掉channels下面的 -defaults一行,使其不再访问默认channel<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line"></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line"></span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -489,9 +401,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/docker/" rel="tag"># docker</a>
-            
-              <a href="/tags/虚拟化/" rel="tag"># 虚拟化</a>
+              <a href="/tags/python/" rel="tag"># python</a>
             
           </div>
         
@@ -501,8 +411,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/07/docker安装mysql搭建主从/" rel="next" title="docker安装mysql搭建主从">
-                  <i class="fa fa-chevron-left"></i> docker安装mysql搭建主从
+                <a href="/2019/10/09/mysql创建用户与授权/" rel="next" title="mysql创建用户与授权">
+                  <i class="fa fa-chevron-left"></i> mysql创建用户与授权
                 </a>
               
             </div>
@@ -510,10 +420,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/09/mysql创建用户与授权/" rel="prev" title="mysql创建用户与授权">
-                  mysql创建用户与授权 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -569,7 +475,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockerfile命令"><span class="nav-number">1.</span> <span class="nav-text">Dockerfile命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker常用命令"><span class="nav-number">2.</span> <span class="nav-text">Docker常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像相关"><span class="nav-number">2.1.</span> <span class="nav-text">镜像相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器相关"><span class="nav-number">2.2.</span> <span class="nav-text">容器相关</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建环境"><span class="nav-number">1.</span> <span class="nav-text">创建环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#激活环境"><span class="nav-number">2.</span> <span class="nav-text">激活环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回主环境"><span class="nav-number">3.</span> <span class="nav-text">返回主环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除环境"><span class="nav-number">4.</span> <span class="nav-text">删除环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看系统中的所有环境"><span class="nav-number">5.</span> <span class="nav-text">查看系统中的所有环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装库"><span class="nav-number">6.</span> <span class="nav-text">安装库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看已经安装的库"><span class="nav-number">7.</span> <span class="nav-text">查看已经安装的库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索package的信息"><span class="nav-number">8.</span> <span class="nav-text">搜索package的信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装package到指定的环境"><span class="nav-number">9.</span> <span class="nav-text">安装package到指定的环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新package"><span class="nav-number">10.</span> <span class="nav-text">更新package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除package"><span class="nav-number">11.</span> <span class="nav-text">删除package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置国内镜像，加速conda"><span class="nav-number">12.</span> <span class="nav-text">设置国内镜像，加速conda</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
