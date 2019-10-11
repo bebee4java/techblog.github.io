@@ -61,22 +61,22 @@
 <meta name="keywords" content="docker,虚拟化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker安装mysql搭建主从">
-<meta property="og:url" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/index.html">
+<meta property="og:url" content="https://blogtech.top/2019/10/08/docker安装mysql搭建主从/index.html">
 <meta property="og:site_name" content="JAVA永不为奴!">
 <meta property="og:description" content="查看镜像docker search mysql:5.7拉取镜像docker pull mysql:5.7运行mysql容器建立配置文件master配置文件vim master/conf/my.cnf12345678[mysqld]server_id = 1log-bin= mysql-binread-only=0replicate-ignore-db=mysqlreplicate-ignore-d">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20191007232046365.png">
-<meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115002849.png">
-<meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115058346.png">
-<meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115222899.png">
-<meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115401342.png">
-<meta property="og:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115534116.png">
-<meta property="og:updated_time" content="2019-10-10T03:26:56.535Z">
+<meta property="og:image" content="https://blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20191007232046365.png">
+<meta property="og:image" content="https://blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20190926115002849.png">
+<meta property="og:image" content="https://blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20190926115058346.png">
+<meta property="og:image" content="https://blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20190926115222899.png">
+<meta property="og:image" content="https://blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20190926115401342.png">
+<meta property="og:image" content="https://blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20190926115534116.png">
+<meta property="og:updated_time" content="2019-10-11T02:28:44.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker安装mysql搭建主从">
 <meta name="twitter:description" content="查看镜像docker search mysql:5.7拉取镜像docker pull mysql:5.7运行mysql容器建立配置文件master配置文件vim master/conf/my.cnf12345678[mysqld]server_id = 1log-bin= mysql-binread-only=0replicate-ignore-db=mysqlreplicate-ignore-d">
-<meta name="twitter:image" content="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20191007232046365.png">
-  <link rel="canonical" href="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/">
+<meta name="twitter:image" content="https://blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20191007232046365.png">
+  <link rel="canonical" href="https://blogtech.top/2019/10/08/docker安装mysql搭建主从/">
 
 
 <script id="page-configurations">
@@ -286,7 +286,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://blogtech.top/2019/10/07/docker安装mysql搭建主从/">
+    <link itemprop="mainEntityOfPage" href="https://blogtech.top/2019/10/08/docker安装mysql搭建主从/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bebee4java">
@@ -314,7 +314,7 @@
                 
               
 
-              <time title="创建时间：2019-10-07 22:09:40" itemprop="dateCreated datePublished" datetime="2019-10-07T22:09:40+08:00">2019-10-07</time>
+              <time title="创建时间：2019-10-08 22:09:40" itemprop="dateCreated datePublished" datetime="2019-10-08T22:09:40+08:00">2019-10-08</time>
             </span>
           
             
@@ -325,7 +325,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-10 11:26:56" itemprop="dateModified" datetime="2019-10-10T11:26:56+08:00">2019-10-10</time>
+                <time title="修改时间：2019-10-11 10:28:44" itemprop="dateModified" datetime="2019-10-11T10:28:44+08:00">2019-10-11</time>
               </span>
             
           
@@ -383,7 +383,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><p>docker search mysql:5.7</p><h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>docker pull mysql:5.7</p><h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><h3 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h3><p><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20191007232046365.png" alt></p><h4 id="master配置文件"><a href="#master配置文件" class="headerlink" title="master配置文件"></a>master配置文件</h4><p>vim master/conf/my.cnf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server_id = 1</span><br><span class="line">log-bin= mysql-bin</span><br><span class="line">read-only=0</span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line">replicate-ignore-db=sys</span><br><span class="line">replicate-ignore-db=information_schema</span><br><span class="line">replicate-ignore-db=performance_schema</span><br></pre></td></tr></table></figure></p><a id="more"></a>
+        <h2 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h2><p>docker search mysql:5.7</p><h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><p>docker pull mysql:5.7</p><h2 id="运行mysql容器"><a href="#运行mysql容器" class="headerlink" title="运行mysql容器"></a>运行mysql容器</h2><h3 id="建立配置文件"><a href="#建立配置文件" class="headerlink" title="建立配置文件"></a>建立配置文件</h3><p><img src="//blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20191007232046365.png" alt></p><h4 id="master配置文件"><a href="#master配置文件" class="headerlink" title="master配置文件"></a>master配置文件</h4><p>vim master/conf/my.cnf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server_id = 1</span><br><span class="line">log-bin= mysql-bin</span><br><span class="line">read-only=0</span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line">replicate-ignore-db=sys</span><br><span class="line">replicate-ignore-db=information_schema</span><br><span class="line">replicate-ignore-db=performance_schema</span><br></pre></td></tr></table></figure></p><a id="more"></a>
 
 
 
@@ -393,10 +393,10 @@
 </blockquote>
 <h3 id="运行mysql-master"><a href="#运行mysql-master" class="headerlink" title="运行mysql-master"></a>运行mysql-master</h3><p>docker run —name mastermysql \<br>-p 3307:3306 \<br>-e MYSQL_ROOT_PASSWORD=123456 \<br>-v ~/opt/docker/mysql/master/data:/var/lib/mysql \<br>-v ~/opt/docker/mysql/master/conf/my.cnf:/etc/mysql/my.cnf \<br>-d mysql:5.7</p>
 <h3 id="运行mysql-salve"><a href="#运行mysql-salve" class="headerlink" title="运行mysql-salve"></a>运行mysql-salve</h3><p>docker run —name slavemysql \<br>-p 3308:3306 \<br>-e MYSQL_ROOT_PASSWORD=123456 \<br>-v ~/opt/docker/mysql/slave/data:/var/lib/mysql \<br>-v ~/opt/docker/mysql/slave/conf/my.cnf:/etc/mysql/my.cnf \<br>-d mysql:5.7</p>
-<h2 id="查看docker镜像运行情况"><a href="#查看docker镜像运行情况" class="headerlink" title="查看docker镜像运行情况"></a>查看docker镜像运行情况</h2><p>docker ps<br><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115002849.png" alt></p>
+<h2 id="查看docker镜像运行情况"><a href="#查看docker镜像运行情况" class="headerlink" title="查看docker镜像运行情况"></a>查看docker镜像运行情况</h2><p>docker ps<br><img src="//blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20190926115002849.png" alt></p>
 <h2 id="进入master容器"><a href="#进入master容器" class="headerlink" title="进入master容器"></a>进入master容器</h2><p>docker exec -it mastermysql bash</p>
 <h2 id="进入mysql"><a href="#进入mysql" class="headerlink" title="进入mysql"></a>进入mysql</h2><p>root@a77371ae40bd:/# mysql -uroot -p123456</p>
-<h2 id="查看master状态"><a href="#查看master状态" class="headerlink" title="查看master状态"></a>查看master状态</h2><p>mysql&gt; show master status;<br><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115058346.png" alt></p>
+<h2 id="查看master状态"><a href="#查看master状态" class="headerlink" title="查看master状态"></a>查看master状态</h2><p>mysql&gt; show master status;<br><img src="//blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20190926115058346.png" alt></p>
 <h2 id="创建binlog用户，授权"><a href="#创建binlog用户，授权" class="headerlink" title="创建binlog用户，授权"></a>创建binlog用户，授权</h2><h3 id="创建binlog用户密码为binlog"><a href="#创建binlog用户密码为binlog" class="headerlink" title="创建binlog用户密码为binlog"></a>创建binlog用户密码为binlog</h3><p>CREATE USER ‘binlog’@’%’ IDENTIFIED BY ‘binlog’;</p>
 <h3 id="授权binlog用户拥有binlog库所有表的所有权限"><a href="#授权binlog用户拥有binlog库所有表的所有权限" class="headerlink" title="授权binlog用户拥有binlog库所有表的所有权限"></a>授权binlog用户拥有binlog库所有表的所有权限</h3><p>GRANT ALL ON binlog.* TO ‘binlog’@’%’;</p>
 <h3 id="授予用户-binlog-REPLICATION-SLAVE-权限和-REPLICATION-CLIENT-权限，用于在主从库之间同步数据。"><a href="#授予用户-binlog-REPLICATION-SLAVE-权限和-REPLICATION-CLIENT-权限，用于在主从库之间同步数据。" class="headerlink" title="授予用户 binlog REPLICATION SLAVE 权限和 REPLICATION CLIENT 权限，用于在主从库之间同步数据。"></a>授予用户 binlog REPLICATION SLAVE 权限和 REPLICATION CLIENT 权限，用于在主从库之间同步数据。</h3><p>GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO ‘binlog’@’%’;</p>
@@ -406,7 +406,7 @@
 <blockquote>
 <p>master_host ：Master 的地址，指的是容器的独立ip, 可以通过下面命令查询：</p>
  docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器名称 | 容器id 
-<p><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115222899.png" alt></p>
+<p><img src="//blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20190926115222899.png" alt></p>
 <p>master_port：Master 的端口号，指的是容器的端口号</p>
 <p>master_user：用于数据同步的用户</p>
 <p>master_password：用于同步的用户的密码</p>
@@ -415,9 +415,9 @@
 <p>master_connect_retry：如果连接失败，重试的时间间隔，单位是秒，默认是 60 秒</p>
 </blockquote>
 <h2 id="查询主从同步状态"><a href="#查询主从同步状态" class="headerlink" title="查询主从同步状态:"></a>查询主从同步状态:</h2><p>show slave status \G;</p>
-<p><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115401342.png" alt></p>
+<p><img src="//blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20190926115401342.png" alt></p>
 <h2 id="开启主从复制过程"><a href="#开启主从复制过程" class="headerlink" title="开启主从复制过程"></a>开启主从复制过程</h2><p>start slave;</p>
-<p>再次查询主从同步状态 show slave status \G;<br><img src="//blogtech.top/2019/10/07/docker安装mysql搭建主从/markdown-img-paste-20190926115534116.png" alt></p>
+<p>再次查询主从同步状态 show slave status \G;<br><img src="//blogtech.top/2019/10/08/docker安装mysql搭建主从/markdown-img-paste-20190926115534116.png" alt></p>
 <h2 id="在master库新建binlog库-mlsql-binlog表进行同步测试："><a href="#在master库新建binlog库-mlsql-binlog表进行同步测试：" class="headerlink" title="在master库新建binlog库 mlsql_binlog表进行同步测试："></a>在master库新建binlog库 mlsql_binlog表进行同步测试：</h2><p><details><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="keyword">binlog</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="keyword">binlog</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`mlsql_binlog`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`log`</span> <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="string">`mlsql_binlog`</span> (<span class="string">`id`</span>, <span class="string">`log`</span>) <span class="keyword">values</span>(<span class="number">1</span>, <span class="string">'hello'</span>);</span><br></pre></td></tr></table></figure></details></p>
 <blockquote>
 <p>友情链接：<a href="https://learnku.com/articles/30439" target="_blank" rel="noopener">https://learnku.com/articles/30439</a></p>
@@ -455,8 +455,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/27/hello-world/" rel="next" title="Hello World">
-                  <i class="fa fa-chevron-left"></i> Hello World
+                <a href="/2019/10/07/docker常用操作及技巧/" rel="next" title="docker常用操作及技巧">
+                  <i class="fa fa-chevron-left"></i> docker常用操作及技巧
                 </a>
               
             </div>
@@ -465,8 +465,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/10/08/docker常用操作及技巧/" rel="prev" title="docker常用操作及技巧">
-                  docker常用操作及技巧 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/10/09/mysql创建用户与授权/" rel="prev" title="mysql创建用户与授权">
+                  mysql创建用户与授权 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
