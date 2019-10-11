@@ -1,6 +1,6 @@
 ---
 title: docker安装mysql搭建主从
-date: 2019-10-07 22:09:40
+date: 2019-10-08 22:09:40
 tags:
   - docker
   - 虚拟化
@@ -78,20 +78,22 @@ GRANT REPLICATION SLAVE, REPLICATION CLIENT ON \*.\* TO 'binlog'@'%';
 ## 进入salve容器
 docker exec -it slavemysql bash
 ## 在Slave中进入mysql，执行:
-CHANGE MASTER TO master_host = '172.17.0.2', \
-master_user = 'binlog', \
-master_password = 'binlog', \
-master_port = 3306, \
-master_log_file = 'mysql-bin.000003', \
-master_log_pos = 154, \
+```
+CHANGE MASTER TO master_host = '172.17.0.2',
+master_user = 'binlog',
+master_password = 'binlog',
+master_port = 3306,
+master_log_file = 'mysql-bin.000003',
+master_log_pos = 154,
 master_connect_retry = 30;
+```
 
 **注：**
 >master_host ：Master 的地址，指的是容器的独立ip, 可以通过下面命令查询：
 
->docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器名称 | 容器id
+>{%raw%} docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器名称 | 容器id {%endraw%}
 
-![](assets/markdown-img-paste-20190926115222899.png)
+>![](docker安装mysql搭建主从/markdown-img-paste-20190926115222899.png)
 
 >master_port：Master 的端口号，指的是容器的端口号
 
@@ -108,25 +110,27 @@ master_connect_retry = 30;
 ## 查询主从同步状态:
 show slave status \G;
 
-![](assets/markdown-img-paste-20190926115401342.png)
+![](docker安装mysql搭建主从/markdown-img-paste-20190926115401342.png)
 
 ## 开启主从复制过程
 start slave;
 
 再次查询主从同步状态 show slave status \G;
-![](assets/markdown-img-paste-20190926115534116.png)
+![](docker安装mysql搭建主从/markdown-img-paste-20190926115534116.png)
 
 ## 在master库新建binlog库 mlsql_binlog表进行同步测试：
+<details>
+```sql
 create database binlog;
 
 use binlog;
 
-CREATE TABLE `mlsql_binlog` ( \
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT, \
-  `log` varchar(200) DEFAULT NULL, \
-  PRIMARY KEY (`id`) \
+CREATE TABLE `mlsql_binlog` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `log` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) CHARSET=utf8;
 
 insert into `mlsql_binlog` (`id`, `log`) values(1, 'hello');
-
+```
 > 友情链接：https://learnku.com/articles/30439

@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: tech-blog
+title: JAVA永不为奴!
 subtitle: 技术总结、分享
 description: 涉猎的主要编程语言为java、python、scala，领域涵盖大数据、爬虫、机器学习、深度学习等。
 keywords: "scala, java, python, 博客, 技术分享, 大数据, 机器学习, 大数据技术分享"
@@ -84,7 +84,13 @@ deploy:
   branch: master
 
 search:
-  path: search.xml
+  path: search.json 
   field: post
   format: html
   limit: 10000
+
+symbols_count_time:
+  symbols: true # 文章字数
+  time: true # 阅读时长
+  total_symbols: true # 所有文章总字数
+  total_time: true # 所有文章阅读中时长
