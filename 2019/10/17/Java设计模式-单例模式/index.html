@@ -57,19 +57,22 @@
   };
 </script>
 
-  <meta name="description" content="创建环境创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）1conda create --name py35 python=3.5">
-<meta name="keywords" content="python">
+  <meta name="description" content="单例模式简介定义保证一个类仅有一个实例，并提供一个访问它的全局访问入口。（你是我的唯一～～）为什么要用单例模式呢？&amp;emsp;&amp;emsp;其实生活中很多地方可以反应单例模式：比如一个国家只有一个总统；你正常合法的老婆只能有一个，别人叫你老婆时必须只能是同一个人（排除违法搞多个）。">
+<meta name="keywords" content="Java,设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="conda使用技巧总结">
-<meta property="og:url" content="https://blogtech.top/2019/10/10/conda使用技巧总结/index.html">
+<meta property="og:title" content="Java设计模式:单例模式">
+<meta property="og:url" content="https://blogtech.top/2019/10/17/Java设计模式-单例模式/index.html">
 <meta property="og:site_name" content="JAVA永不为奴!">
-<meta property="og:description" content="创建环境创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）1conda create --name py35 python=3.5">
+<meta property="og:description" content="单例模式简介定义保证一个类仅有一个实例，并提供一个访问它的全局访问入口。（你是我的唯一～～）为什么要用单例模式呢？&amp;emsp;&amp;emsp;其实生活中很多地方可以反应单例模式：比如一个国家只有一个总统；你正常合法的老婆只能有一个，别人叫你老婆时必须只能是同一个人（排除违法搞多个）。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-10T12:48:49.765Z">
+<meta property="og:image" content="https://blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021154529932.png">
+<meta property="og:image" content="https://blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021153411447.png">
+<meta property="og:updated_time" content="2019-10-21T07:45:49.023Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="conda使用技巧总结">
-<meta name="twitter:description" content="创建环境创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）1conda create --name py35 python=3.5">
-  <link rel="canonical" href="https://blogtech.top/2019/10/10/conda使用技巧总结/">
+<meta name="twitter:title" content="Java设计模式:单例模式">
+<meta name="twitter:description" content="单例模式简介定义保证一个类仅有一个实例，并提供一个访问它的全局访问入口。（你是我的唯一～～）为什么要用单例模式呢？&amp;emsp;&amp;emsp;其实生活中很多地方可以反应单例模式：比如一个国家只有一个总统；你正常合法的老婆只能有一个，别人叫你老婆时必须只能是同一个人（排除违法搞多个）。">
+<meta name="twitter:image" content="https://blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021154529932.png">
+  <link rel="canonical" href="https://blogtech.top/2019/10/17/Java设计模式-单例模式/">
 
 
 <script id="page-configurations">
@@ -96,7 +99,7 @@
   padding: 0 10px 0 14px;
 }
 </style>
-  <title>conda使用技巧总结 | JAVA永不为奴!</title>
+  <title>Java设计模式:单例模式 | JAVA永不为奴!</title>
   
 
 
@@ -266,7 +269,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://blogtech.top/2019/10/10/conda使用技巧总结/">
+    <link itemprop="mainEntityOfPage" href="https://blogtech.top/2019/10/17/Java设计模式-单例模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bebee4java">
@@ -278,7 +281,7 @@
       <meta itemprop="name" content="JAVA永不为奴!">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">conda使用技巧总结
+        <h1 class="post-title" itemprop="name headline">Java设计模式:单例模式
 
           
         </h1>
@@ -294,11 +297,19 @@
                 
               
 
-              <time title="创建时间：2019-10-10 20:35:24 / 修改时间：20:48:49" itemprop="dateCreated datePublished" datetime="2019-10-10T20:35:24+08:00">2019-10-10</time>
+              <time title="创建时间：2019-10-17 14:51:06" itemprop="dateCreated datePublished" datetime="2019-10-17T14:51:06+08:00">2019-10-17</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-21 15:45:49" itemprop="dateModified" datetime="2019-10-21T15:45:49+08:00">2019-10-21</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -307,7 +318,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
 
                 
                 
@@ -332,7 +343,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>758</span>
+              <span>2.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -342,7 +353,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -355,19 +366,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="创建环境"><a href="#创建环境" class="headerlink" title="创建环境"></a>创建环境</h2><p>创建一个名为py35的环境，指定Python版本是3.5（不用管是3.5.x，conda会为我们自动寻找3.５.x中的最新版本）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name py35 python=<span class="number">3.5</span></span><br></pre></td></tr></table></figure></p><a id="more"></a>
-<h2 id="激活环境"><a href="#激活环境" class="headerlink" title="激活环境"></a>激活环境</h2><p>激活py35环境<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source activate py35</span><br></pre></td></tr></table></figure></p>
-<h2 id="返回主环境"><a href="#返回主环境" class="headerlink" title="返回主环境"></a>返回主环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source deactivate py35</span><br></pre></td></tr></table></figure>
-<h2 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h2><p>删除一个已有的环境<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove --name py35 --all</span><br></pre></td></tr></table></figure></p>
-<h2 id="查看系统中的所有环境"><a href="#查看系统中的所有环境" class="headerlink" title="查看系统中的所有环境"></a>查看系统中的所有环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info -e</span><br></pre></td></tr></table></figure>
-<h2 id="安装库"><a href="#安装库" class="headerlink" title="安装库"></a>安装库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install numpy</span><br></pre></td></tr></table></figure>
-<h2 id="查看已经安装的库"><a href="#查看已经安装的库" class="headerlink" title="查看已经安装的库"></a>查看已经安装的库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
-<h2 id="搜索package的信息"><a href="#搜索package的信息" class="headerlink" title="搜索package的信息"></a>搜索package的信息</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda search numpy</span><br></pre></td></tr></table></figure>
-<h2 id="安装package到指定的环境"><a href="#安装package到指定的环境" class="headerlink" title="安装package到指定的环境"></a>安装package到指定的环境</h2><p>如果不用-n指定环境名称，则被安装在当前活跃环境，也可以通过-c指定通过某个channel安装<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -n py35 numpy</span><br></pre></td></tr></table></figure></p>
-<h2 id="更新package"><a href="#更新package" class="headerlink" title="更新package"></a>更新package</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda update -n py35 numpy</span><br></pre></td></tr></table></figure>
-<h2 id="删除package"><a href="#删除package" class="headerlink" title="删除package"></a>删除package</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda remove -n py35 numpy</span><br></pre></td></tr></table></figure>
-<h2 id="设置国内镜像，加速conda"><a href="#设置国内镜像，加速conda" class="headerlink" title="设置国内镜像，加速conda"></a>设置国内镜像，加速conda</h2><p>在User主目录下生成.condarc文件，删掉channels下面的 -defaults一行,使其不再访问默认channel<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line"></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line"></span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure></p>
+        <h2 id="单例模式简介"><a href="#单例模式简介" class="headerlink" title="单例模式简介"></a>单例模式简介</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>保证一个类仅有一个实例，并提供一个访问它的全局访问入口。（你是我的唯一～～）</p><h3 id="为什么要用单例模式呢？"><a href="#为什么要用单例模式呢？" class="headerlink" title="为什么要用单例模式呢？"></a>为什么要用单例模式呢？</h3><p>&emsp;&emsp;其实生活中很多地方可以反应单例模式：比如一个国家只有一个总统；你正常合法的老婆只能有一个，别人叫你老婆时必须只能是同一个人（排除违法搞多个）。</p><a id="more"></a>
 
+<p>&emsp;&emsp;在软件系统中，有一些对象其实我们只需要一个比如：线程池、缓存、注册表、日志对象、充当打印机、显卡等设备驱动程序的对象等。事实上，这一类对象也只能有一个实例，如果制造出多个实例就可能会导致一些问题的产生，比如：程序的行为异常、资源使用过量、或者不一致性的结果等。</p>
+<p>&emsp;&emsp;一个简单场景就是：我们的应用程序有一些配置文件，我们希望只在系统启动的时候读取这些配置文件，并将这些配置保存在内存中，以后在程序中使用这些配置文件信息的时候不必再重新读取。这时候就需要使用单例模式。</p>
+<p>&emsp;&emsp;一般在下面两种场景下会考虑使用单例模式：</p>
+<ol>
+<li>产生某对象会消耗过多的资源，为避免频繁地创建与销毁对象对资源的浪费。如：<blockquote>
+<p>对数据库的操作、访问 IO、线程池（threadpool）、网络请求等。</p>
+</blockquote>
+</li>
+<li>某种类型的对象应该有且只有一个。如果制造出多个这样的实例会使程序异常。如：<blockquote>
+<p>一个系统只能有：一个窗口管理器或文件系统，计时工具或 ID（序号）生成器，缓存（cache），处理偏好设置和注册表（registry）的对象，日志对象。</p>
+</blockquote>
+</li>
+</ol>
+<p>&emsp;&emsp;简单来说使用单例模式可以带来下面几个好处：</p>
+<ol>
+<li>对于频繁使用的对象，可以节省创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销；</li>
+<li>由于new操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻 GC 压力，缩短 GC 停顿时间。</li>
+</ol>
+<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><p>&emsp;&emsp;单例模式，按加载时机可以分为：饿汉方式和懒汉方式；按实现的方式，有：双重检查加锁，内部类方式和枚举方式等等。它们有的效率很高，有的节省内存，有的实现得简单漂亮，还有的存在严重缺陷，大部分使用的时候都有限制条件。下面我们来分析下各种写法的区别，辨别哪些是不可行的，哪些是推荐的，最后为大家筛选出几个值得我们适时应用到项目中的实现方式。</p>
+<h3 id="饿汉模式"><a href="#饿汉模式" class="headerlink" title="饿汉模式"></a>饿汉模式</h3><p>&emsp;&emsp;所谓饿汉模式就是指全局的单例实例在类装载时构建。举个生活例子：妈妈早上起来为我们做饭吃，饭快做好的时候，一般都会叫我们起床吃饭，这是日常情况。如果饭还没有好的时候，我们就自己起来了（这时候妈妈还没有叫我们起床），这种情况在单例模式中称之为饿汉式，也就是说妈妈还没有叫我们起床，我们自己就起来的，就是外部还没有调用自己，自己的实例就已经创建好了。</p>
+<p><details><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HungryPresident</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> HungryPresident INSTANCE = <span class="keyword">new</span> HungryPresident();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 私有化构造方法</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">HungryPresident</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HungryPresident <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"getInstance"</span>);</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details></p>
+<p><strong>优缺点：</strong></p>
+<ol>
+<li>简单实用，比较推荐。</li>
+<li>类加载到内存后，只实例化一个实例，JVM保证线程安全，不用同步，运行效率高。</li>
+<li>实例不管后续有没有使用，类加载完就完成实例化，外部一直没有调用该实例，那么这部分的系统资源的消耗是没有意义的。但话说如果这个类不用的话，你也没必要加载呀。<blockquote>
+<p>代码测试验证：<br><img src="//blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021154529932.png" alt></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="懒汉模式"><a href="#懒汉模式" class="headerlink" title="懒汉模式"></a>懒汉模式</h3><p>&emsp;&emsp;所谓的懒汉模式，就是一开始并不实例化对象，等到需要使用的时候才实例化。还是上面的例子，如果饭做好了，妈妈叫我们起床之后，我们才慢吞吞的起床，这种情况在单例模式中称之为懒汉式（饭都做好了，妈妈叫你起床之后，自己才起的，能不懒汉吗？就是外部对该类的方法发出调用之后，该实例才建立的）。</p>
+<p><details><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazyLoadPresident</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LazyLoadPresident INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LazyLoadPresident</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazyLoadPresident <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (INSTANCE == <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"getInstance"</span>);</span><br><span class="line">            INSTANCE = <span class="keyword">new</span> LazyLoadPresident();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details></p>
+<p><strong>优缺点：</strong></p>
+<ol>
+<li>实例在被使用的时候才被创建，可以节省系统资源，体现了延迟加载的思想。</li>
+<li>多线程下，实例不能保证只有一个，线程不安全。<blockquote>
+<p>代码测试验证：<br><img src="//blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021153411447.png" alt></p>
+</blockquote>
+</li>
+</ol>
+<h2 id><a href="#" class="headerlink" title="#"></a>#</h2>
     </div>
 
     
@@ -382,7 +423,9 @@
           
           <div class="post-tags">
             
-              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+            
+              <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
             
           </div>
         
@@ -392,8 +435,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/09/mysql创建用户与授权/" rel="next" title="mysql创建用户与授权">
-                  <i class="fa fa-chevron-left"></i> mysql创建用户与授权
+                <a href="/2019/10/11/Java设计模式剖析/" rel="next" title="Java设计模式剖析">
+                  <i class="fa fa-chevron-left"></i> Java设计模式剖析
                 </a>
               
             </div>
@@ -401,10 +444,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/11/Java设计模式剖析/" rel="prev" title="Java设计模式剖析">
-                  Java设计模式剖析 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -460,7 +499,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建环境"><span class="nav-number">1.</span> <span class="nav-text">创建环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#激活环境"><span class="nav-number">2.</span> <span class="nav-text">激活环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回主环境"><span class="nav-number">3.</span> <span class="nav-text">返回主环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除环境"><span class="nav-number">4.</span> <span class="nav-text">删除环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看系统中的所有环境"><span class="nav-number">5.</span> <span class="nav-text">查看系统中的所有环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装库"><span class="nav-number">6.</span> <span class="nav-text">安装库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看已经安装的库"><span class="nav-number">7.</span> <span class="nav-text">查看已经安装的库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索package的信息"><span class="nav-number">8.</span> <span class="nav-text">搜索package的信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装package到指定的环境"><span class="nav-number">9.</span> <span class="nav-text">安装package到指定的环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新package"><span class="nav-number">10.</span> <span class="nav-text">更新package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除package"><span class="nav-number">11.</span> <span class="nav-text">删除package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置国内镜像，加速conda"><span class="nav-number">12.</span> <span class="nav-text">设置国内镜像，加速conda</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式简介"><span class="nav-number">1.</span> <span class="nav-text">单例模式简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用单例模式呢？"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要用单例模式呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方式"><span class="nav-number">2.</span> <span class="nav-text">实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#饿汉模式"><span class="nav-number">2.1.</span> <span class="nav-text">饿汉模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒汉模式"><span class="nav-number">2.2.</span> <span class="nav-text">懒汉模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">#</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
