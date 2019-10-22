@@ -52,7 +52,7 @@
 </script>
 
   <meta name="description" content="单例模式简介定义保证一个类仅有一个实例，并提供一个访问它的全局访问入口。（你是我的唯一～～）为什么要用单例模式呢？&amp;emsp;&amp;emsp;其实生活中很多地方可以反应单例模式：比如一个国家只有一个总统；你正常合法的老婆只能有一个，别人叫你老婆时必须只能是同一个人（排除违法搞多个）。">
-<meta name="keywords" content="Java,设计模式">
+<meta name="keywords" content="设计模式,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java设计模式:单例模式">
 <meta property="og:url" content="https://blogtech.top/2019/10/17/Java设计模式-单例模式/index.html">
@@ -61,7 +61,8 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021154529932.png">
 <meta property="og:image" content="https://blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021153411447.png">
-<meta property="og:updated_time" content="2019-10-21T08:45:01.531Z">
+<meta property="og:image" content="https://blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021202039812.png">
+<meta property="og:updated_time" content="2019-10-22T02:40:19.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java设计模式:单例模式">
 <meta name="twitter:description" content="单例模式简介定义保证一个类仅有一个实例，并提供一个访问它的全局访问入口。（你是我的唯一～～）为什么要用单例模式呢？&amp;emsp;&amp;emsp;其实生活中很多地方可以反应单例模式：比如一个国家只有一个总统；你正常合法的老婆只能有一个，别人叫你老婆时必须只能是同一个人（排除违法搞多个）。">
@@ -265,7 +266,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-21 16:45:01" itemprop="dateModified" datetime="2019-10-21T16:45:01+08:00">2019-10-21</time>
+                <time title="修改时间：2019-10-22 10:40:19" itemprop="dateModified" datetime="2019-10-22T10:40:19+08:00">2019-10-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -292,14 +293,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>5.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -338,22 +339,76 @@
 <ol>
 <li>简单实用，比较推荐。</li>
 <li>类加载到内存后，只实例化一个实例，JVM保证线程安全，不用同步，运行效率高。</li>
-<li>实例不管后续有没有使用，类加载完就完成实例化，外部一直没有调用该实例，那么这部分的系统资源的消耗是没有意义的。但话说如果这个类不用的话，你也没必要加载呀。<blockquote>
+<li>实例不管后续有没有使用，类加载完就完成实例化，外部一直没有调用该实例，那么这部分的系统资源的消耗是没有意义的。但话说如果这个类不用的话，你也没必要加载呀。</li>
+</ol>
+<blockquote>
 <p>代码测试验证：<br><img src="//blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021154529932.png" alt></p>
 </blockquote>
-</li>
-</ol>
 <h3 id="懒汉模式"><a href="#懒汉模式" class="headerlink" title="懒汉模式"></a>懒汉模式</h3><p>&emsp;&emsp;所谓的懒汉模式，就是一开始并不实例化对象，等到需要使用的时候才实例化。还是上面的例子，如果饭做好了，妈妈叫我们起床之后，我们才慢吞吞的起床，这种情况在单例模式中称之为懒汉式（饭都做好了，妈妈叫你起床之后，自己才起的，能不懒汉吗？就是外部对该类的方法发出调用之后，该实例才建立的）。</p>
 <p><details><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazyLoadPresident</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> LazyLoadPresident INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LazyLoadPresident</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazyLoadPresident <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (INSTANCE == <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"getInstance"</span>);</span><br><span class="line">            INSTANCE = <span class="keyword">new</span> LazyLoadPresident();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details></p>
 <p><strong>优缺点：</strong></p>
 <ol>
 <li>实例在被使用的时候才被创建，可以节省系统资源，体现了延迟加载的思想。</li>
-<li>多线程下，实例不能保证只有一个，线程不安全。<blockquote>
+<li>多线程下，实例不能保证只有一个，线程不安全。</li>
+</ol>
+<blockquote>
 <p>代码测试验证：<br><img src="//blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021153411447.png" alt></p>
 </blockquote>
-</li>
+<font color="red">那如何将懒汉式单例在多线程下正确的发挥作用呢？</font>
+
+<p>可以在访问单例实例的方法处进行同步：</p>
+<p><details><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadSafeLazyLoadPresident</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ThreadSafeLazyLoadPresident INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ThreadSafeLazyLoadPresident</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> ThreadSafeLazyLoadPresident <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (INSTANCE == <span class="keyword">null</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">"getInstance"</span>);</span><br><span class="line">            INSTANCE = <span class="keyword">new</span> ThreadSafeLazyLoadPresident();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details></p>
+<p><strong>优缺点：</strong></p>
+<ol>
+<li>可以正确按需返回单例对象，线程安全</li>
+<li>每次获取对象都得加锁，在频繁获取对象操作下，效率太低</li>
 </ol>
-<h2 id><a href="#" class="headerlink" title="#"></a>#</h2>
+<blockquote>
+<p>代码测试验证：<br><img src="//blogtech.top/2019/10/17/Java设计模式-单例模式/markdown-img-paste-20191021202039812.png" alt></p>
+</blockquote>
+<h3 id="双重检查加锁式"><a href="#双重检查加锁式" class="headerlink" title="双重检查加锁式"></a>双重检查加锁式</h3><p>&emsp;&emsp;上面懒汉模式直接在整个方法用了synchronized关键字进行方法同步，锁的粒度太大。双重校验方式就是为了解决懒汉模式的线程安全和效率问题而产生的。</p>
+<p><details><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadSafeDoubleCheckPresident</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 必须加volatile</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> ThreadSafeDoubleCheckPresident INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ThreadSafeDoubleCheckPresident</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ThreadSafeDoubleCheckPresident <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (INSTANCE == <span class="keyword">null</span>) &#123;  <span class="comment">// 这层判断是有必要的 大多数情况下INSTANCE不为null直接返回了，减少了加锁的操作</span></span><br><span class="line">            System.out.println(<span class="string">"getInstance"</span>);</span><br><span class="line">            <span class="keyword">synchronized</span> (ThreadSafeDoubleCheckPresident.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (INSTANCE == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    INSTANCE = <span class="keyword">new</span> ThreadSafeDoubleCheckPresident();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details></p>
+<blockquote>
+<p>注：<br>下面解释一下为啥 instance 变量要声明成 volatile<br>原因是instance = new ThreadSafeDoubleCheckPresident() 这一行代码并不是原子性的，具体来说，JVM执行这一行代码时主要做了三件事：<br>1.给 instance 分配内存空间<br>2.调用 ThreadSafeDoubleCheckPresident 的构造函数来初始化成员变量<br>3.将 instance 变量指向分配的内存空间（执行完这一步之后 instance 就不为 null 了）<br>由于 JVM 的指令优化存在，上面的第二点和第三点并不能保证一定按顺序执行。也就是说执行顺序有可能为 1-2-3 或者 1-3-2<br>假设是 1-3-2，那么如果执行到3的时候，线程被抢占了，有另外一个线程获取了单例对象（这时候 instance 不为 null，但是还没有初始化），那么自然就会出现错误。<br>为了解决这个问题，我们只要将 instance 变量声明成 volatile 就可以了。<br>volatile 关键字主要有两个特性：<br>1.可见性：保证线程没有变量的本地副本，每次都去主内存获取最新版本<br>2.禁止指令重排序：生成内存屏障<br>很明显，我们这里利用的是 volatile 的第二个特性。<br>特别注意的是只有在 Java 5 之后使用这种方式才是完全安全的，原因是 Java 5 之前的 Java 内存模型（Java Memory Model，JMM）存在缺陷，即使变量声明为 volatile 也不能完全避免重排序，这个问题在 Java 5 之后才修复。</p>
+</blockquote>
+<p><strong>优缺点：</strong></p>
+<ol>
+<li>可以正确按需返回单例对象，线程安全</li>
+<li>不够简洁，不好理解</li>
+</ol>
+<h3 id="静态内部类式"><a href="#静态内部类式" class="headerlink" title="静态内部类式"></a>静态内部类式</h3><p>&emsp;&emsp;静态内部实现的单例是懒加载的且线程安全。根据JVM的类加载规则，静态内部类只有在主动调用的时候才会加载。也就是说，在第一次调用 getInstance() 方法时才会加载 SingletonHolder 类，同时创建了 INSTANCE 对象。</p>
+<p><details><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InitializingOnDemandHolderPresident</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">InitializingOnDemandHolderPresident</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 可以做到延迟加载</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> InitializingOnDemandHolderPresident INSTANCE =</span><br><span class="line">                <span class="keyword">new</span> InitializingOnDemandHolderPresident();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> InitializingOnDemandHolderPresident <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SingletonHolder.INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details></p>
+<p><strong>优缺点：</strong></p>
+<ol>
+<li>懒加载的且线程安全，解决占用内存问题</li>
+<li>无法阻止反射、序列化攻击</li>
+</ol>
+<h3 id="枚举类式"><a href="#枚举类式" class="headerlink" title="枚举类式"></a>枚举类式</h3><p>&emsp;&emsp;这种实现方式没有被广泛采用，但这是实现单例模式的最佳方法。 它更简洁，自动支持序列化机制，绝对防止多次实例化。其实上面所说的实现方式都存在缺陷，就是无法阻止通过反射、序列化的方式创建出多个实例，只有枚举这种形式可以做到。</p>
+<p><details><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span>  EnumPresident &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"EnumPresident run ..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></details></p>
+<p><strong>优缺点：</strong></p>
+<ol>
+<li>简洁、线程安全、绝对单例</li>
+<li>把一个类定义成枚举形式上有点别扭</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文章主要介绍到了以下几种方式实现单例模式：</p>
+<ul>
+<li>饿汉式(线程安全）</li>
+<li>懒汉式（非线程安全和synchronized关键字线程安全版本)</li>
+<li>懒汉式(双重检查加锁版本)</li>
+<li>懒汉式（静态内部类方式）</li>
+<li>饿汉式（枚举方式）</li>
+</ul>
+<p>JDK中也有相同方式的单例实现类如：</p>
+<ul>
+<li>java.lang.Runtime.getRuntime()</li>
+<li>java.awt.Desktop.getDesktop()</li>
+<li>java.lang.System.getSecurityManager()</li>
+</ul>
+<p>每种方式都存在优缺点，值得一说的是，绝大部分场景中直接使用第一种饿汉式就可以，它足够简单，也能保证线程安全，只要你可以容忍它在第一次创建所消耗的系统资源。</p>
+<blockquote>
+<p>源码地址：<a href="https://github.com/bebee4java/java-design-patterns/tree/master/singleton" target="_blank" rel="noopener">https://github.com/bebee4java/java-design-patterns/tree/master/singleton</a></p>
+</blockquote>
+
     </div>
 
     
@@ -362,8 +417,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java</a>
               <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
           </div>
 
         
@@ -421,7 +476,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式简介"><span class="nav-number">1.</span> <span class="nav-text">单例模式简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用单例模式呢？"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要用单例模式呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方式"><span class="nav-number">2.</span> <span class="nav-text">实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#饿汉模式"><span class="nav-number">2.1.</span> <span class="nav-text">饿汉模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒汉模式"><span class="nav-number">2.2.</span> <span class="nav-text">懒汉模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">#</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例模式简介"><span class="nav-number">1.</span> <span class="nav-text">单例模式简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用单例模式呢？"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要用单例模式呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方式"><span class="nav-number">2.</span> <span class="nav-text">实现方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#饿汉模式"><span class="nav-number">2.1.</span> <span class="nav-text">饿汉模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒汉模式"><span class="nav-number">2.2.</span> <span class="nav-text">懒汉模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双重检查加锁式"><span class="nav-number">2.3.</span> <span class="nav-text">双重检查加锁式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态内部类式"><span class="nav-number">2.4.</span> <span class="nav-text">静态内部类式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举类式"><span class="nav-number">2.5.</span> <span class="nav-text">枚举类式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,12 +539,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">13k</span>
+    <span title="站点总字数">16k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">12 分钟</span>
+    <span title="站点阅读时长">15 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
@@ -637,20 +692,6 @@ window.addEventListener('pjax:success', () => {
   
 
   
-
-<script>
-  window.livereOptions = {
-    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
-  };
-  (function(d, s) {
-    var j, e = d.getElementsByTagName(s)[0];
-    if (typeof LivereTower === 'function') { return; }
-    j = d.createElement(s);
-    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-    j.async = true;
-    e.parentNode.insertBefore(j, e);
-  })(document, 'script');
-</script>
 <div id="needsharebutton-float">
       <span class="btn">
         <i class="fa fa-share-alt" aria-hidden="true"></i>
@@ -665,6 +706,20 @@ window.addEventListener('pjax:success', () => {
         flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
       new needShareButton('#needsharebutton-float', flOptions);
   </script>
+<script>
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
     </div>
 </body>
 </html>
