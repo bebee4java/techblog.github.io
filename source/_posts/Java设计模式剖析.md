@@ -34,7 +34,7 @@ categories:
 &emsp;&emsp;根据设计模式的参考书[Design Patterns - Elements of Reusable Object-Oriented Software](DesignPatterns.pdf)（中文译名：设计模式 - 可复用的面向对象软件元素，由GOF四人帮合著） 中所提到的，总共有 23 种设计模式。这些模式可以分为三大类：创建型模式（Creational Patterns）、结构型模式（Structural Patterns）、行为型模式（Behavioral Patterns）。
 ### 创建型模式
 隐藏创建对象的创建逻辑，提供创建对象的接口，而非使用new关键字进行创建。
-* [单例模式（Singleton Pattern）](http://localhost:4000/2019/10/17/Java设计模式-单例模式/)
+* [单例模式（Singleton Pattern）](/2019/10/17/Java设计模式-单例模式/)
 * 工厂模式（Factory Pattern）
 * 抽象工厂模式（Abstract Factory Pattern）
 * 建造者模式（Builder Pattern）
