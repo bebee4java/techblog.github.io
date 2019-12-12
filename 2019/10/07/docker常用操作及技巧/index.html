@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="JAVA永不为奴!">
 <meta property="og:description" content="Dockerfile命令 官网介绍：https://docs.docker.com/engine/reference/builder/  FROM FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。  MAINTAINER MAINTAINER &amp;lt;name&amp;gt; 用来指定维护">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-12T14:56:23.064Z">
+<meta property="og:updated_time" content="2019-12-12T14:59:56.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker常用操作及技巧">
 <meta name="twitter:description" content="Dockerfile命令 官网介绍：https://docs.docker.com/engine/reference/builder/  FROM FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。  MAINTAINER MAINTAINER &amp;lt;name&amp;gt; 用来指定维护">
@@ -262,7 +262,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-12 22:56:23" itemprop="dateModified" datetime="2019-12-12T22:56:23+08:00">2019-12-12</time>
+                <time title="修改时间：2019-12-12 22:59:56" itemprop="dateModified" datetime="2019-12-12T22:59:56+08:00">2019-12-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -372,18 +372,17 @@
 </li>
 <li>将本地镜像推送到远程仓库：<code>docker push REPOSITORY:TAG</code><blockquote>
 <p>一般需要三步：<br>A. 先将已有镜像打标签:<code>docker tag IMAGE_ID REPOSITORY:TAG</code> 需要tag为远程的仓库地址<br>B. 登录远程仓库：<code>docker login –username=USERNAME REPOSITORY_REGOIN</code><br>C. 推送镜像到远程仓库：<code>docker push REPOSITORY:TAG</code></p>
+<p>比如将hello-docker:v1推送到docker hub库：docker push hub.docker.com/r/bebee/demo/hello-docker:v1<br>docker镜像库：<br>docker hub：<a href="https://hub.docker.com" target="_blank" rel="noopener">https://hub.docker.com</a><br>网易云镜像中心：<a href="https://c.163yun.com/hub#/m/home/" target="_blank" rel="noopener">https://c.163yun.com/hub#/m/home/</a></p>
 </blockquote>
 </li>
-</ol>
-<blockquote>
-<p>比如将hello-docker:v1推送到docker hub库：docker push hub.docker.com/r/bebee/demo/hello-docker:v1<br>docker镜像库：<br>docker hub：<a href="https://hub.docker.com" target="_blank" rel="noopener">https://hub.docker.com</a><br>网易云镜像中心：<a href="https://c.163yun.com/hub#/m/home/" target="_blank" rel="noopener">https://c.163yun.com/hub#/m/home/</a></p>
-<ol>
-<li>删除镜像：<code>docker rmi IMAGE_ID/ REPOSITORY:TAG</code><br>强制删除：<code>docker rmi -f IMAGE_ID</code></li>
+<li>删除镜像：<code>docker rmi IMAGE_ID/ REPOSITORY:TAG</code><blockquote>
+<p>强制删除：<code>docker rmi -f IMAGE_ID</code></p>
+</blockquote>
+</li>
 <li>删除untagged images：<code>docker rmi $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)</code></li>
 <li>删除全部image：<code>docker rmi $(docker images -q)</code></li>
 <li>删除所有不使用的镜像：<code>docker image prune --force --all</code> 或 <code>docker image prune -f -a</code></li>
 </ol>
-</blockquote>
 <h3 id="容器相关"><a href="#容器相关" class="headerlink" title="容器相关"></a>容器相关</h3><ol>
 <li>查看正在运行的容器：<code>docker ps</code></li>
 <li>列出所有容器ID：<code>docker ps -aq</code></li>
