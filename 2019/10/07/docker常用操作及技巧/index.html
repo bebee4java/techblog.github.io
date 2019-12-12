@@ -59,7 +59,7 @@
 <meta property="og:site_name" content="JAVA永不为奴!">
 <meta property="og:description" content="Dockerfile命令 官网介绍：https://docs.docker.com/engine/reference/builder/  FROM FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。  MAINTAINER MAINTAINER &amp;lt;name&amp;gt; 用来指定维护">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T02:29:02.660Z">
+<meta property="og:updated_time" content="2019-12-12T14:56:23.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker常用操作及技巧">
 <meta name="twitter:description" content="Dockerfile命令 官网介绍：https://docs.docker.com/engine/reference/builder/  FROM FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;  用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。  MAINTAINER MAINTAINER &amp;lt;name&amp;gt; 用来指定维护">
@@ -262,7 +262,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-11 10:29:02" itemprop="dateModified" datetime="2019-10-11T10:29:02+08:00">2019-10-11</time>
+                <time title="修改时间：2019-12-12 22:56:23" itemprop="dateModified" datetime="2019-12-12T22:56:23+08:00">2019-12-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -289,7 +289,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.5k</span>
+              <span>3.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -325,11 +325,11 @@
 </li>
 <li><p>ADD</p>
 <p><code>ADD &lt;src&gt; &lt;dest&gt;</code></p>
-<p>将文件复制到文件：是相对被构建的源目录的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，是容器中的绝对路径。</p>
+<p>将文件复制到文件：src是相对被构建的源目录（执行docker build命令的当前目录）的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，dest是容器中的绝对路径。</p>
 </li>
 <li><p>COPY</p>
 <p><code>COPY &lt;src&gt; &lt;dest&gt;</code></p>
-<p>复制本地主机的（为Dockerfile所在目录的相对路径）到容器中的,与ADD指令差不多</p>
+<p>复制本地主机的src到容器中的dest,与ADD指令差不多</p>
 </li>
 <li><p>ENTRYPOINT</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENTRYPOINT [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] ：推荐使用的<span class="built_in">exec</span>形式</span><br><span class="line">ENTRYPOINT <span class="built_in">command</span> param1 param2 ：shell 形式</span><br></pre></td></tr></table></figure>
@@ -366,22 +366,24 @@
 <h3 id="镜像相关"><a href="#镜像相关" class="headerlink" title="镜像相关"></a>镜像相关</h3><ol>
 <li>查看本地仓库的镜像：<code>docker images</code></li>
 <li>拉取远程仓库镜像：<code>docker pull REPOSITORY:TAG</code></li>
-<li>将本地镜像推送到远程仓库：<code>docker push REPOSITORY:TAG</code><blockquote>
-<p>一般需要三步：<br>A. 先将已有镜像打标签:<code>docker tag IMAGE_ID REPOSITORY:TAG</code> 需要tag为远程的仓库地址<br>B. 登录远程仓库：<code>docker login –username=USERNAME REPOSITORY_REGOIN</code><br>C. 推送镜像到远程仓库：<code>docker push REPOSITORY:TAG</code></p>
-</blockquote>
-</li>
 <li>使用Dockerfile构建镜像: <code>docker build -t REPOSITORY:TAG .</code><blockquote>
 <p>.点表示当前目录，默认会找当前目录下的Dockerfile进行构建，也可以通过<code>-f</code>指定Dockerfile：<code>docker build -f /path/Dockerfile -t REPOSITORY:TAG .</code></p>
 </blockquote>
 </li>
-<li>删除镜像：<code>docker rmi IMAGE_ID/ REPOSITORY:TAG</code><blockquote>
-<p>强制删除：<code>docker rmi -f IMAGE_ID</code></p>
+<li>将本地镜像推送到远程仓库：<code>docker push REPOSITORY:TAG</code><blockquote>
+<p>一般需要三步：<br>A. 先将已有镜像打标签:<code>docker tag IMAGE_ID REPOSITORY:TAG</code> 需要tag为远程的仓库地址<br>B. 登录远程仓库：<code>docker login –username=USERNAME REPOSITORY_REGOIN</code><br>C. 推送镜像到远程仓库：<code>docker push REPOSITORY:TAG</code></p>
 </blockquote>
 </li>
+</ol>
+<blockquote>
+<p>比如将hello-docker:v1推送到docker hub库：docker push hub.docker.com/r/bebee/demo/hello-docker:v1<br>docker镜像库：<br>docker hub：<a href="https://hub.docker.com" target="_blank" rel="noopener">https://hub.docker.com</a><br>网易云镜像中心：<a href="https://c.163yun.com/hub#/m/home/" target="_blank" rel="noopener">https://c.163yun.com/hub#/m/home/</a></p>
+<ol>
+<li>删除镜像：<code>docker rmi IMAGE_ID/ REPOSITORY:TAG</code><br>强制删除：<code>docker rmi -f IMAGE_ID</code></li>
 <li>删除untagged images：<code>docker rmi $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)</code></li>
 <li>删除全部image：<code>docker rmi $(docker images -q)</code></li>
 <li>删除所有不使用的镜像：<code>docker image prune --force --all</code> 或 <code>docker image prune -f -a</code></li>
 </ol>
+</blockquote>
 <h3 id="容器相关"><a href="#容器相关" class="headerlink" title="容器相关"></a>容器相关</h3><ol>
 <li>查看正在运行的容器：<code>docker ps</code></li>
 <li>列出所有容器ID：<code>docker ps -aq</code></li>
@@ -495,7 +497,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -695,20 +697,6 @@ window.addEventListener('pjax:success', () => {
   
 
   
-
-<script>
-  window.livereOptions = {
-    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
-  };
-  (function(d, s) {
-    var j, e = d.getElementsByTagName(s)[0];
-    if (typeof LivereTower === 'function') { return; }
-    j = d.createElement(s);
-    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-    j.async = true;
-    e.parentNode.insertBefore(j, e);
-  })(document, 'script');
-</script>
 <div id="needsharebutton-float">
       <span class="btn">
         <i class="fa fa-share-alt" aria-hidden="true"></i>
@@ -723,6 +711,20 @@ window.addEventListener('pjax:success', () => {
         flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
       new needShareButton('#needsharebutton-float', flOptions);
   </script>
+<script>
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
     </div>
 </body>
 </html>

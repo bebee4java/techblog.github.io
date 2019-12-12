@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blogtech.top/"/>
-  <updated>2019-10-22T02:40:19.928Z</updated>
+  <updated>2019-10-22T08:29:39.778Z</updated>
   <id>https://blogtech.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java设计模式:策略模式</title>
+    <link href="https://blogtech.top/2019/10/22/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://blogtech.top/2019/10/22/Java设计模式-策略模式/</id>
+    <published>2019-10-22T08:28:21.000Z</published>
+    <updated>2019-10-22T08:29:39.778Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="策略模式简介"><a href="#策略模式简介" class="headerlink" title="策略模式简介"></a>策略模式简介</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;策略模式简介&quot;&gt;&lt;a href=&quot;#策略模式简介&quot; class=&quot;headerlink&quot; title=&quot;策略模式简介&quot;&gt;&lt;/a&gt;策略模式简介&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="https://blogtech.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="Java" scheme="https://blogtech.top/tags/Java/"/>
+    
+      <category term="设计模式" scheme="https://blogtech.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>Java设计模式:单例模式</title>
@@ -35,9 +63,9 @@
       <category term="设计模式" scheme="https://blogtech.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
-      <category term="设计模式" scheme="https://blogtech.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
       <category term="Java" scheme="https://blogtech.top/tags/Java/"/>
+    
+      <category term="设计模式" scheme="https://blogtech.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -60,9 +88,9 @@
       <category term="设计模式" scheme="https://blogtech.top/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
     
-      <category term="设计模式" scheme="https://blogtech.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
       <category term="Java" scheme="https://blogtech.top/tags/Java/"/>
+    
+      <category term="设计模式" scheme="https://blogtech.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -146,9 +174,9 @@
     <link href="https://blogtech.top/2019/10/07/docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E5%8F%8A%E6%8A%80%E5%B7%A7/"/>
     <id>https://blogtech.top/2019/10/07/docker常用操作及技巧/</id>
     <published>2019-10-07T09:52:24.000Z</published>
-    <updated>2019-10-11T02:29:02.660Z</updated>
+    <updated>2019-12-12T14:56:23.064Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Dockerfile命令"><a href="#Dockerfile命令" class="headerlink" title="Dockerfile命令"></a>Dockerfile命令</h2><blockquote><p>官网介绍：<a href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder/</a></p></blockquote><ol><li><p>FROM</p><p><code>FROM &lt;image&gt;:&lt;tag&gt;</code></p><p> 用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。</p></li><li><p>MAINTAINER</p><p><code>MAINTAINER &lt;name&gt;</code></p><p>用来指定维护者的姓名和联系方式。</p></li><li><p>RUN</p><p><code>RUN &lt;command&gt; 或 RUN [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code></p><p>每条 RUN 指令将在当前镜像基础上执行指定命令，并提交为新的镜像。</p></li><li><p>ADD</p><p><code>ADD &lt;src&gt; &lt;dest&gt;</code></p><p>将文件复制到文件：是相对被构建的源目录的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，是容器中的绝对路径。</p></li><li><p>COPY</p><p><code>COPY &lt;src&gt; &lt;dest&gt;</code></p><p>复制本地主机的（为Dockerfile所在目录的相对路径）到容器中的,与ADD指令差不多</p></li><li><p>ENTRYPOINT</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENTRYPOINT [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] ：推荐使用的<span class="built_in">exec</span>形式</span><br><span class="line">ENTRYPOINT <span class="built_in">command</span> param1 param2 ：shell 形式</span><br></pre></td></tr></table></figure><p>配置容器启动后执行的命令，并且不可被 docker run 提供的参数覆盖。一个 Dockerfile 中只能有一个 ENTRYPOINT，如果有多个，则最后一个生效。</p></li><li><p>CMD</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMD [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] 使用<span class="built_in">exec</span>执行，推荐方式；</span><br><span class="line">CMD <span class="built_in">command</span> param1 param2 在/bin/sh 中执行，提供给需要交互的应用；</span><br><span class="line">CMD [<span class="string">"param1"</span>,<span class="string">"param2"</span>]提供给ENTRYPOINT 的默认参数；</span><br></pre></td></tr></table></figure><p>指定启动容器时执行的命令，每个 Dockerfile 只能有一条 CMD 命令。如果指定了多条命令，只有最后一条会被执行。如果用户启动容器时候指定了运行的命令，则会覆盖掉 CMD 指定的命令。</p></li><li><p>WORKDIR</p><p><code>WORKDIR /path/to/workdir</code></p><p>为后续的 RUN、CMD、ENTRYPOINT 指令配置工作目录。可以使用多个 WORKDIR 指令，后续命令如果参数是相对路径，则会基于之前命令指定的路径。例如：<br>WORKDIR /a<br>WORKDIR b<br>WORKDIR c<br>RUN pwd<br>则最终路径为 /a/b/c 。</p></li><li><p>EXPOSE</p><p><code>EXPOSE &lt;port&gt; [&lt;port&gt;...]</code></p><p>告诉 Docker 服务端容器暴露的端口号，供互联系统使用。例如：EXPOSE 8080 3000，开放 8080 和 3000 端口。</p></li><li><p>ENV</p><p><code>ENV &lt;key&gt; &lt;value&gt;</code><br>指定一个环境变量，会被后续 RUN 指令使用，并在容器运行时保持。</p></li><li><p>VOLUME</p><p><code>VOLUME [&quot;/data&quot;]</code></p><p>创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存放数据库和需要保持的数据等。</p></li><li><p>USER</p><p><code>USER &lt;UID/Username&gt;</code></p><p>为容器内指定 CMD RUN ENTRYPOINT 命令运行时的用户名或UID。</p></li></ol><a id="more"></a><h2 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h2><blockquote><p>官网介绍：<a href="https://docs.docker.com/engine/reference/commandline/docker/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/commandline/docker/</a></p></blockquote><h3 id="镜像相关"><a href="#镜像相关" class="headerlink" title="镜像相关"></a>镜像相关</h3><ol><li>查看本地仓库的镜像：<code>docker images</code></li><li>拉取远程仓库镜像：<code>docker pull REPOSITORY:TAG</code></li><li>将本地镜像推送到远程仓库：<code>docker push REPOSITORY:TAG</code><blockquote><p>一般需要三步：<br>A. 先将已有镜像打标签:<code>docker tag IMAGE_ID REPOSITORY:TAG</code> 需要tag为远程的仓库地址<br>B. 登录远程仓库：<code>docker login –username=USERNAME REPOSITORY_REGOIN</code><br>C. 推送镜像到远程仓库：<code>docker push REPOSITORY:TAG</code></p></blockquote></li><li>使用Dockerfile构建镜像: <code>docker build -t REPOSITORY:TAG .</code><blockquote><p>.点表示当前目录，默认会找当前目录下的Dockerfile进行构建，也可以通过<code>-f</code>指定Dockerfile：<code>docker build -f /path/Dockerfile -t REPOSITORY:TAG .</code></p></blockquote></li><li>删除镜像：<code>docker rmi IMAGE_ID/ REPOSITORY:TAG</code><blockquote><p>强制删除：<code>docker rmi -f IMAGE_ID</code></p></blockquote></li><li>删除untagged images：<code>docker rmi $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)</code></li><li>删除全部image：<code>docker rmi $(docker images -q)</code></li><li>删除所有不使用的镜像：<code>docker image prune --force --all</code> 或 <code>docker image prune -f -a</code></li></ol><h3 id="容器相关"><a href="#容器相关" class="headerlink" title="容器相关"></a>容器相关</h3><ol><li>查看正在运行的容器：<code>docker ps</code></li><li>列出所有容器ID：<code>docker ps -aq</code></li><li>查看正在运行容器的日志：<code>docker logs -f CONTAINER_ID</code></li><li>列出所有容器：<code>docker container list</code></li><li>停止容器：<code>docker stop CONTAINER_ID</code><blockquote><p>停止所有的container：<code>docker stop $(docker ps -a -q)</code></p></blockquote></li><li>删除容器：<code>docker rm CONTAINER_ID</code><blockquote><p>删除所有container：<code>docker rm $(docker ps -a -q)</code></p></blockquote></li><li>从容器到宿主机复制：<code>docker cp CONTAINER:SRC_PATH DEST_PATH</code></li><li>从宿主机到容器复制：<code>docker cp SRC_PATH CONTAINER:DEST_PATH</code></li><li>删除所有停止的容器：<code>docker container prune</code></li><li>停止/启动/杀死/重启一个容器：<code>docker stop/start/kill/restart CONTAINER_ID/CONTAINER_NAME</code></li><li>进入容器：<code>docker exec -it CONTAINER_ID /bin/bash</code><blockquote><p>docker exec ：在运行的容器中执行命令<br>-d :分离模式: 在后台运行<br>-i :即使没有附加也保持STDIN（标准输入） 打开,以交互运行容器，通常与 -t 同时使用；<br>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p></blockquote></li><li>运行容器：<code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code><blockquote><p>OPTIONS说明：<br>   -a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；<br>   -d: 后台运行容器，并返回容器ID；<br>   -i: 以交互模式运行容器，通常与 -t 同时使用；<br>   -P: 随机端口映射，容器内部端口随机映射到主机的高端口<br>   -p: 指定端口映射，格式为：主机(宿主)端口:容器端口<br>   -t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；<br>   —name=”nginx-lb”: 为容器指定一个名称；<br>   —dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致；<br>   —dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致；<br>   -h “mars”: 指定容器的hostname；<br>   -e username=”ritchie”: 设置环境变量；<br>   —env-file=[]: 从指定文件读入环境变量；<br>   —cpuset=”0-2” or —cpuset=”0,1,2”: 绑定容器到指定CPU运行；<br>   -m :设置容器使用内存最大值；<br>   —net=”bridge”: 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；<br>   —link=[]: 添加链接到另一个容器；<br>   —expose=[]: 开放一个端口或一组端口；<br>   —volume , -v: 绑定一个卷</p></blockquote></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="Dockerfile命令"><a href="#Dockerfile命令" class="headerlink" title="Dockerfile命令"></a>Dockerfile命令</h2><blockquote><p>官网介绍：<a href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder/</a></p></blockquote><ol><li><p>FROM</p><p><code>FROM &lt;image&gt;:&lt;tag&gt;</code></p><p> 用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。</p></li><li><p>MAINTAINER</p><p><code>MAINTAINER &lt;name&gt;</code></p><p>用来指定维护者的姓名和联系方式。</p></li><li><p>RUN</p><p><code>RUN &lt;command&gt; 或 RUN [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code></p><p>每条 RUN 指令将在当前镜像基础上执行指定命令，并提交为新的镜像。</p></li><li><p>ADD</p><p><code>ADD &lt;src&gt; &lt;dest&gt;</code></p><p>将文件复制到文件：src是相对被构建的源目录（执行docker build命令的当前目录）的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，dest是容器中的绝对路径。</p></li><li><p>COPY</p><p><code>COPY &lt;src&gt; &lt;dest&gt;</code></p><p>复制本地主机的src到容器中的dest,与ADD指令差不多</p></li><li><p>ENTRYPOINT</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENTRYPOINT [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] ：推荐使用的<span class="built_in">exec</span>形式</span><br><span class="line">ENTRYPOINT <span class="built_in">command</span> param1 param2 ：shell 形式</span><br></pre></td></tr></table></figure><p>配置容器启动后执行的命令，并且不可被 docker run 提供的参数覆盖。一个 Dockerfile 中只能有一个 ENTRYPOINT，如果有多个，则最后一个生效。</p></li><li><p>CMD</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMD [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] 使用<span class="built_in">exec</span>执行，推荐方式；</span><br><span class="line">CMD <span class="built_in">command</span> param1 param2 在/bin/sh 中执行，提供给需要交互的应用；</span><br><span class="line">CMD [<span class="string">"param1"</span>,<span class="string">"param2"</span>]提供给ENTRYPOINT 的默认参数；</span><br></pre></td></tr></table></figure><p>指定启动容器时执行的命令，每个 Dockerfile 只能有一条 CMD 命令。如果指定了多条命令，只有最后一条会被执行。如果用户启动容器时候指定了运行的命令，则会覆盖掉 CMD 指定的命令。</p></li><li><p>WORKDIR</p><p><code>WORKDIR /path/to/workdir</code></p><p>为后续的 RUN、CMD、ENTRYPOINT 指令配置工作目录。可以使用多个 WORKDIR 指令，后续命令如果参数是相对路径，则会基于之前命令指定的路径。例如：<br>WORKDIR /a<br>WORKDIR b<br>WORKDIR c<br>RUN pwd<br>则最终路径为 /a/b/c 。</p></li><li><p>EXPOSE</p><p><code>EXPOSE &lt;port&gt; [&lt;port&gt;...]</code></p><p>告诉 Docker 服务端容器暴露的端口号，供互联系统使用。例如：EXPOSE 8080 3000，开放 8080 和 3000 端口。</p></li><li><p>ENV</p><p><code>ENV &lt;key&gt; &lt;value&gt;</code><br>指定一个环境变量，会被后续 RUN 指令使用，并在容器运行时保持。</p></li><li><p>VOLUME</p><p><code>VOLUME [&quot;/data&quot;]</code></p><p>创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存放数据库和需要保持的数据等。</p></li><li><p>USER</p><p><code>USER &lt;UID/Username&gt;</code></p><p>为容器内指定 CMD RUN ENTRYPOINT 命令运行时的用户名或UID。</p></li></ol><a id="more"></a><h2 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h2><blockquote><p>官网介绍：<a href="https://docs.docker.com/engine/reference/commandline/docker/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/commandline/docker/</a></p></blockquote><h3 id="镜像相关"><a href="#镜像相关" class="headerlink" title="镜像相关"></a>镜像相关</h3><ol><li>查看本地仓库的镜像：<code>docker images</code></li><li>拉取远程仓库镜像：<code>docker pull REPOSITORY:TAG</code></li><li>使用Dockerfile构建镜像: <code>docker build -t REPOSITORY:TAG .</code><blockquote><p>.点表示当前目录，默认会找当前目录下的Dockerfile进行构建，也可以通过<code>-f</code>指定Dockerfile：<code>docker build -f /path/Dockerfile -t REPOSITORY:TAG .</code></p></blockquote></li><li>将本地镜像推送到远程仓库：<code>docker push REPOSITORY:TAG</code><blockquote><p>一般需要三步：<br>A. 先将已有镜像打标签:<code>docker tag IMAGE_ID REPOSITORY:TAG</code> 需要tag为远程的仓库地址<br>B. 登录远程仓库：<code>docker login –username=USERNAME REPOSITORY_REGOIN</code><br>C. 推送镜像到远程仓库：<code>docker push REPOSITORY:TAG</code></p></blockquote></li></ol><blockquote><p>比如将hello-docker:v1推送到docker hub库：docker push hub.docker.com/r/bebee/demo/hello-docker:v1<br>docker镜像库：<br>docker hub：<a href="https://hub.docker.com" target="_blank" rel="noopener">https://hub.docker.com</a><br>网易云镜像中心：<a href="https://c.163yun.com/hub#/m/home/" target="_blank" rel="noopener">https://c.163yun.com/hub#/m/home/</a></p><ol><li>删除镜像：<code>docker rmi IMAGE_ID/ REPOSITORY:TAG</code><br>强制删除：<code>docker rmi -f IMAGE_ID</code></li><li>删除untagged images：<code>docker rmi $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)</code></li><li>删除全部image：<code>docker rmi $(docker images -q)</code></li><li>删除所有不使用的镜像：<code>docker image prune --force --all</code> 或 <code>docker image prune -f -a</code></li></ol></blockquote><h3 id="容器相关"><a href="#容器相关" class="headerlink" title="容器相关"></a>容器相关</h3><ol><li>查看正在运行的容器：<code>docker ps</code></li><li>列出所有容器ID：<code>docker ps -aq</code></li><li>查看正在运行容器的日志：<code>docker logs -f CONTAINER_ID</code></li><li>列出所有容器：<code>docker container list</code></li><li>停止容器：<code>docker stop CONTAINER_ID</code><blockquote><p>停止所有的container：<code>docker stop $(docker ps -a -q)</code></p></blockquote></li><li>删除容器：<code>docker rm CONTAINER_ID</code><blockquote><p>删除所有container：<code>docker rm $(docker ps -a -q)</code></p></blockquote></li><li>从容器到宿主机复制：<code>docker cp CONTAINER:SRC_PATH DEST_PATH</code></li><li>从宿主机到容器复制：<code>docker cp SRC_PATH CONTAINER:DEST_PATH</code></li><li>删除所有停止的容器：<code>docker container prune</code></li><li>停止/启动/杀死/重启一个容器：<code>docker stop/start/kill/restart CONTAINER_ID/CONTAINER_NAME</code></li><li>进入容器：<code>docker exec -it CONTAINER_ID /bin/bash</code><blockquote><p>docker exec ：在运行的容器中执行命令<br>-d :分离模式: 在后台运行<br>-i :即使没有附加也保持STDIN（标准输入） 打开,以交互运行容器，通常与 -t 同时使用；<br>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p></blockquote></li><li>运行容器：<code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code><blockquote><p>OPTIONS说明：<br>   -a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；<br>   -d: 后台运行容器，并返回容器ID；<br>   -i: 以交互模式运行容器，通常与 -t 同时使用；<br>   -P: 随机端口映射，容器内部端口随机映射到主机的高端口<br>   -p: 指定端口映射，格式为：主机(宿主)端口:容器端口<br>   -t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；<br>   —name=”nginx-lb”: 为容器指定一个名称；<br>   —dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致；<br>   —dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致；<br>   -h “mars”: 指定容器的hostname；<br>   -e username=”ritchie”: 设置环境变量；<br>   —env-file=[]: 从指定文件读入环境变量；<br>   —cpuset=”0-2” or —cpuset=”0,1,2”: 绑定容器到指定CPU运行；<br>   -m :设置容器使用内存最大值；<br>   —net=”bridge”: 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；<br>   —link=[]: 添加链接到另一个容器；<br>   —expose=[]: 开放一个端口或一组端口；<br>   —volume , -v: 绑定一个卷</p></blockquote></li></ol>]]></content>
     
     <summary type="html">
     
@@ -169,11 +197,11 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;ADD&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ADD &amp;lt;src&amp;gt; &amp;lt;dest&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;将文件复制到文件：是相对被构建的源目录的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，是容器中的绝对路径。&lt;/p&gt;
+&lt;p&gt;将文件复制到文件：src是相对被构建的源目录（执行docker build命令的当前目录）的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，dest是容器中的绝对路径。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;COPY&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;COPY &amp;lt;src&amp;gt; &amp;lt;dest&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;复制本地主机的（为Dockerfile所在目录的相对路径）到容器中的,与ADD指令差不多&lt;/p&gt;
+&lt;p&gt;复制本地主机的src到容器中的dest,与ADD指令差不多&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;ENTRYPOINT&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ENTRYPOINT [&lt;span class=&quot;string&quot;&gt;&quot;executable&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;param1&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;param2&quot;&lt;/span&gt;] ：推荐使用的&lt;span class=&quot;built_in&quot;&gt;exec&lt;/span&gt;形式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ENTRYPOINT &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt; param1 param2 ：shell 形式&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
