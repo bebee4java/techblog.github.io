@@ -62,13 +62,20 @@
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/signup.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/new_issue.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/issue.png">
+<meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/oss-domain.png">
+<meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/dns.png">
+<meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/domain-ok.png">
+<meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/issue-ok.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/gen-key.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/passphase.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/list_keys.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/send-keys.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/recv-keys-err.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/recv-keys-ok.png">
-<meta property="og:updated_time" content="2019-12-30T09:20:22.676Z">
+<meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/gpg-pass.png">
+<meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/deploy-jar.png">
+<meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/nexus-repo.png">
+<meta property="og:updated_time" content="2019-12-30T14:23:40.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="发布自己的项目JAR到MAVEN中央仓库">
 <meta name="twitter:description" content="为什么写这篇文章&amp;emsp;&amp;emsp;maven是java世界最流行的构建工具，做java的程序员应该没少使用maven中央仓库中的各种jar包，方便解决了工作中很多问题，提高了编码效率。程序员界有个编程原则就是：不要重复造轮子，所以工作中时常会抽取出很多实用的工具类、包等等。但是咱们也不能总是只取不予，应该懂得奉献，当你写好了一个十分好用的jar包，想贡献出去给大家使用的时候，应该怎么做呢？方">
@@ -266,7 +273,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-30 11:53:50 / 修改时间：17:20:22" itemprop="dateCreated datePublished" datetime="2019-12-30T11:53:50+08:00">2019-12-30</time>
+              <time title="创建时间：2019-12-30 11:53:50 / 修改时间：22:23:40" itemprop="dateCreated datePublished" datetime="2019-12-30T11:53:50+08:00">2019-12-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -293,14 +300,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.4k</span>
+              <span>6.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -322,8 +329,14 @@
 </blockquote>
 <h3 id="登录Jira"><a href="#登录Jira" class="headerlink" title="登录Jira"></a>登录Jira</h3><p>注册完成后登陆: <a href="https://issues.sonatype.org/login.jsp" target="_blank" rel="noopener">https://issues.sonatype.org/login.jsp</a></p>
 <h3 id="创建一个-Issue"><a href="#创建一个-Issue" class="headerlink" title="创建一个 Issue"></a>创建一个 Issue</h3><blockquote>
-<p>通过【Create】按钮创建<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/new_issue.png" alt="new_issue"><br>Project选择【Community Support - Open Source Project Repository Hosting (OSSRH)】<br>Issue Type: 选择【New Project】<br>Summary和Description: 自己填,注意要用英文<br>Group Id: 这个必须要注意,如果你用的是GitHub,一定要是 com.github.你的github用户名,例如我的项目地址是:<a href="https://github.com/bebee4java/common-utils" target="_blank" rel="noopener">https://github.com/bebee4java/common-utils</a>, 那我的groupId就是com.github.bebee4java, 当然也可以使用 GitHub的Page的域名 io.github.你的github用户名. 如果你有自己的域名和项目地址也可以,官方人员会询问你是否有这个域名的所有权.在你项目的pom里一定要使用这个groupId,最好包路径也使用.<br>Project URL: 是你的项目地址<br>SCM url: 是你的项目git地址<br>Username(s): 可以不用填,这是能辅助你提交项目的合作人的帐号,前提是他也得在这个Jira注册<br>其他使用默认值就行了<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/issue.png" alt><br>创建好Issue后就等待官方回复吧。这个需要一段时间的等待，如果审批通过的话就会在你申请的邮件箱中收到通过的邮件。</p>
+<p>通过【Create】按钮创建<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/new_issue.png" alt="new_issue"><br>Project选择【Community Support - Open Source Project Repository Hosting (OSSRH)】<br>Issue Type: 选择【New Project】<br>Summary和Description: 自己填,注意要用英文<br>Group Id: 这个必须要注意,如果你用的是GitHub,一定要是 com.github.你的github用户名,例如我的项目地址是:<a href="https://github.com/bebee4java/common-utils" target="_blank" rel="noopener">https://github.com/bebee4java/common-utils</a>, 那我的groupId就是com.github.bebee4java, 当然也可以使用 GitHub的Page的域名 io.github.你的github用户名. 如果你有自己的域名和项目地址也可以,官方人员会询问你是否有这个域名的所有权.在你项目的pom里一定要使用这个groupId,最好包路径也使用.<br>Project URL: 是你的项目地址<br>SCM url: 是你的项目git地址<br>Username(s): 可以不用填,这是能辅助你提交项目的合作人的帐号,前提是他也得在这个Jira注册<br>其他使用默认值就行了<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/issue.png" alt><br>创建好Issue后就等待官方回复吧。这个需要一段时间的等待，运气好的话很快就会有工作人员回复你。</p>
 </blockquote>
+<p>这边我使用自己的域名作为项目的Group Id。然后工作人员给我回复了这么一个问题：<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/oss-domain.png" alt><br>Central OSSRH 问你，这个域名是你的么，怎么证明这个域名是你的呢？他给了你两种解决方法。</p>
+<ol>
+<li>在域名解析中加上一个Txt记录，指向你发布的这个Issues(他称作JIRA ticket:)。（最快）</li>
+<li>设置重定向到您的Github页面（如果尚不存在）</li>
+</ol>
+<p>所以，我选择了第一种方式，在dns里加条txt记录：<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/dns.png" alt><br>然后你就可以继续等待他的回复了……看到他给你这么回复：<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/domain-ok.png" alt><br>说明你的问题被解决了：<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/issue-ok.png" alt><br>审批通过在你申请的邮件箱中也会收到通过的邮件。</p>
 <h3 id="配置gpg加密jar包上传到构件仓库里面"><a href="#配置gpg加密jar包上传到构件仓库里面" class="headerlink" title="配置gpg加密jar包上传到构件仓库里面"></a>配置gpg加密jar包上传到构件仓库里面</h3><ol>
 <li>安装gpg: Mac直接在控制台<code>brew install gpg</code>即可.<blockquote>
 <p>Windows 系统，可以下载 Gpg4win 软件来生成密钥对。<br>下载地址：<a href="https://www.gpg4win.org/download.html" target="_blank" rel="noopener">https://www.gpg4win.org/download.html</a><br>查看是否安装成功: gpg —version</p>
@@ -343,6 +356,13 @@
 <p>注意：distributionManagement-&gt;repository-&gt;id 要和maven setting.xml 中的保持一致。</p>
 </blockquote>
 <h3 id="上传构件到OSS中"><a href="#上传构件到OSS中" class="headerlink" title="上传构件到OSS中"></a>上传构件到OSS中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean deploy -Prelease-sign-artifacts</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果出现错误：gpg: signing failed: Inappropriate ioctl for device<br>在~/.zshrc 文件里加入export GPG_TTY=$(tty)</p>
+</blockquote>
+<p>打包过程中会让你输入PGP的密码：<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/gpg-pass.png" alt><br>出现下面上传的信息，说明你已经可以正常将jar包部署到 OSS 中。<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/deploy-jar.png" alt><br>注意：此时上传的构件并未正式发布到中央仓库中，只是部署到 OSS 中了，别人还不能够使用。</p>
+<h3 id="在OSS中发布构建"><a href="#在OSS中发布构建" class="headerlink" title="在OSS中发布构建"></a>在OSS中发布构建</h3><p>地址：<a href="https://oss.sonatype.org/#stagingRepositories" target="_blank" rel="noopener">https://oss.sonatype.org/#stagingRepositories</a> 需要使用之前注册的sonatype账号登录。</p>
+<p>&emsp;&emsp;用你的SonaType的账号密码进行登陆后，点击左边的Staging Repositories然后根据所写的Group Id进行查询。如果在Staging Repositories中查找不到你的项目，但是在<a href="https://oss.sonatype.org/index.html" target="_blank" rel="noopener">Nexus公有库</a>中是可以查找到你的项目的话。那么这个问题可以忽略，因为这个是nexus-staging-maven-plugin插件中autoReleaseAfterClose自动设置为了True，所以就自动给close-&gt;release-&gt;drop三步，相当于自动给你做了。所以等待两个小时就会在中央仓库查找到了。<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/nexus-repo.png" alt></p>
+<h3 id="通知Sonatype构件已成功发布"><a href="#通知Sonatype构件已成功发布" class="headerlink" title="通知Sonatype构件已成功发布"></a>通知Sonatype构件已成功发布</h3><p>通知Sonatype构件已成功发布，在之前创建的Issue中回复一条<code>The component has been successfully released</code>通知工作人员为需要发布的构件做审批，发布后会关闭该Issue。</p>
 
     </div>
 
@@ -411,7 +431,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么写这篇文章"><span class="nav-number">1.</span> <span class="nav-text">为什么写这篇文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布到中央仓库的好处"><span class="nav-number">2.</span> <span class="nav-text">发布到中央仓库的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布流程"><span class="nav-number">3.</span> <span class="nav-text">发布流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册-sonatype的Jira帐号"><span class="nav-number">3.1.</span> <span class="nav-text">注册 sonatype的Jira帐号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录Jira"><span class="nav-number">3.2.</span> <span class="nav-text">登录Jira</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个-Issue"><span class="nav-number">3.3.</span> <span class="nav-text">创建一个 Issue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置gpg加密jar包上传到构件仓库里面"><span class="nav-number">3.4.</span> <span class="nav-text">配置gpg加密jar包上传到构件仓库里面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置maven-setting-xml"><span class="nav-number">3.5.</span> <span class="nav-text">配置maven setting.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置项目pom-xml"><span class="nav-number">3.6.</span> <span class="nav-text">配置项目pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传构件到OSS中"><span class="nav-number">3.7.</span> <span class="nav-text">上传构件到OSS中</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么写这篇文章"><span class="nav-number">1.</span> <span class="nav-text">为什么写这篇文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布到中央仓库的好处"><span class="nav-number">2.</span> <span class="nav-text">发布到中央仓库的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布流程"><span class="nav-number">3.</span> <span class="nav-text">发布流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册-sonatype的Jira帐号"><span class="nav-number">3.1.</span> <span class="nav-text">注册 sonatype的Jira帐号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录Jira"><span class="nav-number">3.2.</span> <span class="nav-text">登录Jira</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个-Issue"><span class="nav-number">3.3.</span> <span class="nav-text">创建一个 Issue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置gpg加密jar包上传到构件仓库里面"><span class="nav-number">3.4.</span> <span class="nav-text">配置gpg加密jar包上传到构件仓库里面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置maven-setting-xml"><span class="nav-number">3.5.</span> <span class="nav-text">配置maven setting.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置项目pom-xml"><span class="nav-number">3.6.</span> <span class="nav-text">配置项目pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传构件到OSS中"><span class="nav-number">3.7.</span> <span class="nav-text">上传构件到OSS中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在OSS中发布构建"><span class="nav-number">3.8.</span> <span class="nav-text">在OSS中发布构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通知Sonatype构件已成功发布"><span class="nav-number">3.9.</span> <span class="nav-text">通知Sonatype构件已成功发布</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -474,12 +494,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">22k</span>
+    <span title="站点总字数">23k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">20 分钟</span>
+    <span title="站点阅读时长">21 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
   </div>
