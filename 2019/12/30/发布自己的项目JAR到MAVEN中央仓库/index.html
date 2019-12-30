@@ -68,7 +68,7 @@
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/send-keys.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/recv-keys-err.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/recv-keys-ok.png">
-<meta property="og:updated_time" content="2019-12-30T09:15:25.069Z">
+<meta property="og:updated_time" content="2019-12-30T09:20:22.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="发布自己的项目JAR到MAVEN中央仓库">
 <meta name="twitter:description" content="为什么写这篇文章&amp;emsp;&amp;emsp;maven是java世界最流行的构建工具，做java的程序员应该没少使用maven中央仓库中的各种jar包，方便解决了工作中很多问题，提高了编码效率。程序员界有个编程原则就是：不要重复造轮子，所以工作中时常会抽取出很多实用的工具类、包等等。但是咱们也不能总是只取不予，应该懂得奉献，当你写好了一个十分好用的jar包，想贡献出去给大家使用的时候，应该怎么做呢？方">
@@ -266,7 +266,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-30 11:53:50 / 修改时间：17:15:25" itemprop="dateCreated datePublished" datetime="2019-12-30T11:53:50+08:00">2019-12-30</time>
+              <time title="创建时间：2019-12-30 11:53:50 / 修改时间：17:20:22" itemprop="dateCreated datePublished" datetime="2019-12-30T11:53:50+08:00">2019-12-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -326,7 +326,7 @@
 </blockquote>
 <h3 id="配置gpg加密jar包上传到构件仓库里面"><a href="#配置gpg加密jar包上传到构件仓库里面" class="headerlink" title="配置gpg加密jar包上传到构件仓库里面"></a>配置gpg加密jar包上传到构件仓库里面</h3><ol>
 <li>安装gpg: Mac直接在控制台<code>brew install gpg</code>即可.<blockquote>
-<p>Windows 系统，可以下载 Gpg4win 软件来生成密钥对。下载地址：<a href="https://www.gpg4win.org/download.html" target="_blank" rel="noopener">https://www.gpg4win.org/download.html</a><br>查看是否安装成功: gpg —version</p>
+<p>Windows 系统，可以下载 Gpg4win 软件来生成密钥对。<br>下载地址：<a href="https://www.gpg4win.org/download.html" target="_blank" rel="noopener">https://www.gpg4win.org/download.html</a><br>查看是否安装成功: gpg —version</p>
 </blockquote>
 </li>
 <li>命令行生成生成秘钥: <code>gpg --gen-key</code><br>按提示输入名字， 如：bebee4java，邮箱grsong.cn@gmail,com，然后选择(O)kay, 输入：o<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/gen-key.png" alt><br>然后要求输入密码Passphase（输入两次），相当于密钥库密码，不要忘记。<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/passphase.png" alt><br>到此密钥就生成成功了。</li>
@@ -342,7 +342,7 @@
 <blockquote>
 <p>注意：distributionManagement-&gt;repository-&gt;id 要和maven setting.xml 中的保持一致。</p>
 </blockquote>
-<h3 id="上传构件到-OSS-中"><a href="#上传构件到-OSS-中" class="headerlink" title="上传构件到 OSS 中"></a>上传构件到 OSS 中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean deploy -Prelease-sign-artifacts</span><br></pre></td></tr></table></figure>
+<h3 id="上传构件到OSS中"><a href="#上传构件到OSS中" class="headerlink" title="上传构件到OSS中"></a>上传构件到OSS中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean deploy -Prelease-sign-artifacts</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -411,7 +411,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么写这篇文章"><span class="nav-number">1.</span> <span class="nav-text">为什么写这篇文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布到中央仓库的好处"><span class="nav-number">2.</span> <span class="nav-text">发布到中央仓库的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布流程"><span class="nav-number">3.</span> <span class="nav-text">发布流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册-sonatype的Jira帐号"><span class="nav-number">3.1.</span> <span class="nav-text">注册 sonatype的Jira帐号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录Jira"><span class="nav-number">3.2.</span> <span class="nav-text">登录Jira</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个-Issue"><span class="nav-number">3.3.</span> <span class="nav-text">创建一个 Issue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置gpg加密jar包上传到构件仓库里面"><span class="nav-number">3.4.</span> <span class="nav-text">配置gpg加密jar包上传到构件仓库里面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置maven-setting-xml"><span class="nav-number">3.5.</span> <span class="nav-text">配置maven setting.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置项目pom-xml"><span class="nav-number">3.6.</span> <span class="nav-text">配置项目pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传构件到-OSS-中"><span class="nav-number">3.7.</span> <span class="nav-text">上传构件到 OSS 中</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么写这篇文章"><span class="nav-number">1.</span> <span class="nav-text">为什么写这篇文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布到中央仓库的好处"><span class="nav-number">2.</span> <span class="nav-text">发布到中央仓库的好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布流程"><span class="nav-number">3.</span> <span class="nav-text">发布流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册-sonatype的Jira帐号"><span class="nav-number">3.1.</span> <span class="nav-text">注册 sonatype的Jira帐号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录Jira"><span class="nav-number">3.2.</span> <span class="nav-text">登录Jira</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个-Issue"><span class="nav-number">3.3.</span> <span class="nav-text">创建一个 Issue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置gpg加密jar包上传到构件仓库里面"><span class="nav-number">3.4.</span> <span class="nav-text">配置gpg加密jar包上传到构件仓库里面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置maven-setting-xml"><span class="nav-number">3.5.</span> <span class="nav-text">配置maven setting.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置项目pom-xml"><span class="nav-number">3.6.</span> <span class="nav-text">配置项目pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传构件到OSS中"><span class="nav-number">3.7.</span> <span class="nav-text">上传构件到OSS中</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
