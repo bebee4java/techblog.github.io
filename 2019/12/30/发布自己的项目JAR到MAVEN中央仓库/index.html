@@ -77,7 +77,7 @@
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/nexus-repo.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/snapshot-problem.png">
 <meta property="og:image" content="https://blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/central-sync.png">
-<meta property="og:updated_time" content="2019-12-31T07:51:24.847Z">
+<meta property="og:updated_time" content="2019-12-31T07:54:53.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="发布自己的项目JAR到MAVEN中央仓库">
 <meta name="twitter:description" content="为什么写这篇文章&amp;emsp;&amp;emsp;maven是java世界最流行的构建工具，做java的程序员应该没少使用maven中央仓库中的各种jar包，方便解决了工作中很多问题，提高了编码效率。程序员界有个编程原则就是：不要重复造轮子，所以工作中时常会抽取出很多实用的工具类、包等等。但是咱们也不能总是只取不予，应该懂得奉献，当你写好了一个十分好用的jar包，想贡献出去给大家使用的时候，应该怎么做呢？方">
@@ -281,7 +281,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-31 15:51:24" itemprop="dateModified" datetime="2019-12-31T15:51:24+08:00">2019-12-31</time>
+                <time title="修改时间：2019-12-31 15:54:53" itemprop="dateModified" datetime="2019-12-31T15:54:53+08:00">2019-12-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -374,8 +374,8 @@
 <p><strong>遇到的坑：</strong></p>
 <p>&emsp;&emsp;当第一次进行上传的时候，version不要写成SNAPSHOT的，如果你写成SNAPSHOT版本的话，那么Sonartype管理员会回复你下面一段话：<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/snapshot-problem.png" alt><br>大概意思是在第一次的时候不能上传SNAPSHOT只有第一次成功了以后才可上传。</p>
 <p>解决方法：修改version重新deploy。很快管理员就回复同步已经开启：<br><img src="//blogtech.top/2019/12/30/发布自己的项目JAR到MAVEN中央仓库/central-sync.png" alt><br>看到整个同步过程需要2个小时左右，还是挺慢的😂……</p>
-<h2 id="检查同步是否成功"><a href="#检查同步是否成功" class="headerlink" title="检查同步是否成功"></a>检查同步是否成功</h2><p>&emsp;&emsp;除了通过 <a href="https://search.maven.org/" target="_blank" rel="noopener">search.maven.org</a> 检查同步是否成功之外，查询<a href="https://mvnrepository.com/search?q=tech.sqlclub" target="_blank" rel="noopener">mvnrepository</a>也是常用的搜索方式。不过，值得一提的是，mvnrepository 相较于 search.maven.org 同步会更慢点，原因是 mvnrepository 引用了 central.maven.org 仓库。而 <code>central.maven.org == repo1.maven.org</code>，两个域名对应的 IP 是一样的，而这个 repo1.maven.org 就是默认的 Maven central repository，也就是 search.maven.org 的仓库。<br>所以，你可以在以下两个仓库看到发布包：<br><a href="http://central.maven.org/maven2/tech/sqlclub/" target="_blank" rel="noopener">http://central.maven.org/maven2/tech/sqlclub/</a><br><a href="http://repo1.maven.org/maven2/tech/sqlclub/" target="_blank" rel="noopener">http://repo1.maven.org/maven2/tech/sqlclub/</a></p>
-<p>&emsp;&emsp;据我实际测试发现，大概release之后不超过20分钟，就可以在<a href="https://repo.maven.apache.org/maven2/这里查看到了，只要这里有了，别人就可以依赖你提供的这个jar了。" target="_blank" rel="noopener">https://repo.maven.apache.org/maven2/这里查看到了，只要这里有了，别人就可以依赖你提供的这个jar了。</a></p>
+<h2 id="检查同步是否成功"><a href="#检查同步是否成功" class="headerlink" title="检查同步是否成功"></a>检查同步是否成功</h2><p>&emsp;&emsp;除了通过 <a href="https://search.maven.org/" target="_blank" rel="noopener">search.maven.org</a> 检查同步是否成功之外，查询<a href="https://mvnrepository.com/search?q=tech.sqlclub" target="_blank" rel="noopener">mvnrepository</a>也是常用的搜索方式。不过，值得一提的是，mvnrepository 相较于 search.maven.org 同步会更慢点，原因是 mvnrepository 引用了 central.maven.org 仓库。而 <code>central.maven.org == repo1.maven.org</code>，两个域名对应的 IP 是一样的，而这个 repo1.maven.org 就是默认的 Maven central repository，也就是 search.maven.org 的仓库。所以，你可以在以下两个仓库看到发布包：<br><a href="http://central.maven.org/maven2/tech/sqlclub/" target="_blank" rel="noopener">http://central.maven.org/maven2/tech/sqlclub/</a><br><a href="http://repo1.maven.org/maven2/tech/sqlclub/" target="_blank" rel="noopener">http://repo1.maven.org/maven2/tech/sqlclub/</a></p>
+<p>&emsp;&emsp;据我实际测试发现，大概release之后不超过20分钟，就可以在<a href="https://repo.maven.apache.org/maven2/" target="_blank" rel="noopener">https://repo.maven.apache.org/maven2/</a><br>这里查看到了，只要这里有了，别人就可以依赖你提供的这个jar了。</p>
 <h2 id="以后发布过程"><a href="#以后发布过程" class="headerlink" title="以后发布过程"></a>以后发布过程</h2><p>&emsp;&emsp;第一次提交才这么麻烦,以后提交只用重复maven发布,当然需要等待大概2小时的时间。<br>如果要发布新的项目,在使用相同GroupId的情况下,与上面的过程一样。只有使用不同的GroupId的时候,才会需要再去提交Issue申请。<br>&emsp;&emsp;当然如果你没有换电脑的话 GPG 的过程只需要一次就行。</p>
 
     </div>
