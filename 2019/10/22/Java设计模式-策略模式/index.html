@@ -51,20 +51,20 @@
   };
 </script>
 
-  <meta name="description" content="title: ‘Java设计模式:策略模式’  date: 2019-10-22 16:28:21  tags:- Java - 设计模式   categories:">
-<meta name="keywords" content="scala, java, python, 博客, 技术分享, 大数据, 机器学习, 大数据技术分享">
+  <meta name="description" content="策略模式简介定义 Define a family of algorithms, encapsulate each one, and make them interchangeable. [The] Strategy [pattern] lets the algorithm vary independently from clients that use it.策略模式定义了一组算法，将它们逐个封装">
+<meta name="keywords" content="设计模式,Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA永不为奴!">
+<meta property="og:title" content="Java设计模式:策略模式">
 <meta property="og:url" content="https://blogtech.top/2019/10/22/Java设计模式-策略模式/index.html">
 <meta property="og:site_name" content="JAVA永不为奴!">
-<meta property="og:description" content="title: ‘Java设计模式:策略模式’  date: 2019-10-22 16:28:21  tags:- Java - 设计模式   categories:">
+<meta property="og:description" content="策略模式简介定义 Define a family of algorithms, encapsulate each one, and make them interchangeable. [The] Strategy [pattern] lets the algorithm vary independently from clients that use it.策略模式定义了一组算法，将它们逐个封装">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://blogtech.top/2019/10/22/Java设计模式-策略模式/类图.png">
 <meta property="og:image" content="https://blogtech.top/2019/10/22/Java设计模式-策略模式/时序图.png">
-<meta property="og:updated_time" content="2020-05-28T14:29:53.461Z">
+<meta property="og:updated_time" content="2020-05-28T14:36:45.831Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA永不为奴!">
-<meta name="twitter:description" content="title: ‘Java设计模式:策略模式’  date: 2019-10-22 16:28:21  tags:- Java - 设计模式   categories:">
+<meta name="twitter:title" content="Java设计模式:策略模式">
+<meta name="twitter:description" content="策略模式简介定义 Define a family of algorithms, encapsulate each one, and make them interchangeable. [The] Strategy [pattern] lets the algorithm vary independently from clients that use it.策略模式定义了一组算法，将它们逐个封装">
 <meta name="twitter:image" content="https://blogtech.top/2019/10/22/Java设计模式-策略模式/类图.png">
 
 <link rel="canonical" href="https://blogtech.top/2019/10/22/Java设计模式-策略模式/">
@@ -94,7 +94,7 @@
   padding: 0 10px 0 14px;
 }
 </style>
-  <title> | JAVA永不为奴!</title>
+  <title>Java设计模式:策略模式 | JAVA永不为奴!</title>
   
 
 
@@ -248,7 +248,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          Java设计模式:策略模式
         </h1>
 
         <div class="post-meta">
@@ -265,8 +265,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-28 22:29:53" itemprop="dateModified" datetime="2020-05-28T22:29:53+08:00">2020-05-28</time>
+                <time title="修改时间：2020-05-28 22:36:45" itemprop="dateModified" datetime="2020-05-28T22:36:45+08:00">2020-05-28</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -281,14 +292,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.2k</span>
+              <span>7.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -300,22 +311,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <hr><p>  title: ‘Java设计模式:策略模式’<br>  date: 2019-10-22 16:28:21<br>  tags:</p><pre><code>- Java
-- 设计模式
-</code></pre><p>  categories:</p><a id="more"></a>
-
-
-<pre><code>- 设计模式
-</code></pre><hr>
-<h2 id="策略模式简介"><a href="#策略模式简介" class="headerlink" title="策略模式简介"></a>策略模式简介</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
+        <h2 id="策略模式简介"><a href="#策略模式简介" class="headerlink" title="策略模式简介"></a>策略模式简介</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
 <p>Define a family of algorithms, encapsulate each one, and make them interchangeable. [The] Strategy [pattern] lets the algorithm vary independently from clients that use it.<br>策略模式定义了一组算法，将它们逐个封装起来，并使它们可以相互替换。策略可以让算法独立于使用它们的客户而变化。</p>
 <h3 id="模式结构"><a href="#模式结构" class="headerlink" title="模式结构"></a>模式结构</h3><p>策略模式包含如下角色：</p>
 <ul>
 <li>Context：上下文类，持有具体策略类的实例，并负责调用相关的算法</li>
-<li>Strategy: 策略接口或者策略抽象类</li>
+<li>Strategy：策略接口或者策略抽象类</li>
 <li>ConcreateStrategyA等：实现策略接口的具体策略类</li>
 </ul>
-</blockquote>
+</blockquote><a id="more"></a>
 <p>类图：<br><img src="//blogtech.top/2019/10/22/Java设计模式-策略模式/类图.png" alt><br>时序图：<br><img src="//blogtech.top/2019/10/22/Java设计模式-策略模式/时序图.png" alt></p>
 <h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>在以下情况下可以使用策略模式：</p>
 <ul>
@@ -325,8 +329,7 @@
 <li>不希望客户端知道复杂的、与算法相关的数据结构，在具体策略类中封装算法和相关的数据结构，提高算法的保密性与安全性。</li>
 </ul>
 <h2 id="实践一下"><a href="#实践一下" class="headerlink" title="实践一下"></a>实践一下</h2><p>上面分析了策略模式的结构和概念，介绍了使用的场景。不过光看这些概念还是有些空洞，不好理具体的实现逻辑。下面我将以具体的实例来说明，加深大家对策略模式的理解。</p>
-<p>紧张的期末考试结束了，班主任想看下同学们的语文成绩的排名情况，如果让你来实现这个需求会怎么做呢？很自然的首先我们需要定义学生这个对象，包含学号、语文成绩等等属性，那要怎么对Student对象进行排序呢？我们知道Java对象要想进行大小比较，可以实现Comparable接口，实现里面的compareTo方法，这样就可以对两个学生对象进行比较了。于是学生类可以这么实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Student</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// 学号</span></span><br><span class="line">    <span class="keyword">int</span> sid;</span><br><span class="line">    <span class="comment">// 语文成绩</span></span><br><span class="line">    <span class="keyword">int</span> chinese;</span><br><span class="line">    <span class="comment">// 数学成绩</span></span><br><span class="line">    <span class="keyword">int</span> math;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(<span class="keyword">int</span> sid, <span class="keyword">int</span> chinese, <span class="keyword">int</span> math)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sid = sid;</span><br><span class="line">        <span class="keyword">this</span>.chinese = chinese;</span><br><span class="line">        <span class="keyword">this</span>.math = math;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Student o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.chinese &gt; o.chinese) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.chinese &lt; o.chinese) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&#123;sid:"</span>+sid+<span class="string">",chinese:"</span>+chinese+<span class="string">",math:"</span>+math+<span class="string">"&#125;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>紧张的期末考试结束了，班主任想看下同学们的语文成绩的排名情况，如果让你来实现这个需求会怎么做呢？很自然的首先我们需要定义学生这个对象，包含学号、语文成绩等等属性，那要怎么对Student对象进行排序呢？我们知道Java对象要想进行大小比较，可以实现Comparable接口，实现里面的compareTo方法，这样就可以对两个学生对象进行比较了。于是学生类可以这么实现：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Student</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// 学号</span></span><br><span class="line">    <span class="keyword">int</span> sid;</span><br><span class="line">    <span class="comment">// 语文成绩</span></span><br><span class="line">    <span class="keyword">int</span> chinese;</span><br><span class="line">    <span class="comment">// 数学成绩</span></span><br><span class="line">    <span class="keyword">int</span> math;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(<span class="keyword">int</span> sid, <span class="keyword">int</span> chinese, <span class="keyword">int</span> math)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sid = sid;</span><br><span class="line">        <span class="keyword">this</span>.chinese = chinese;</span><br><span class="line">        <span class="keyword">this</span>.math = math;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Student o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.chinese &gt; o.chinese) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.chinese &lt; o.chinese) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&#123;sid:"</span>+sid+<span class="string">",chinese:"</span>+chinese+<span class="string">",math:"</span>+math+<span class="string">"&#125;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>定义好学生对象后，我们就可以实现一个Sorter，对学生对象进行排序了，sort方法(V1)可以这么做（这里可以忽略排序的算法，重点是在说明策略模式）：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只能对student进行排序</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort_v1</span><span class="params">(Student[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;arr.length-<span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> minPos = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;arr.length; j++)&#123;</span><br><span class="line">                minPos = arr[j].compareTo(arr[minPos]) == -<span class="number">1</span> ? j : minPos;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(arr, i, minPos);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(Student[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        Student temp = arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <p>我们对上面功能进行测试：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SortApp</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       Student[] arr = &#123;<span class="keyword">new</span> Student(<span class="number">1</span>, <span class="number">90</span>, <span class="number">100</span>),</span><br><span class="line">               <span class="keyword">new</span> Student(<span class="number">2</span>, <span class="number">80</span>, <span class="number">89</span>),</span><br><span class="line">               <span class="keyword">new</span> Student(<span class="number">3</span>, <span class="number">91</span>, <span class="number">90</span>)</span><br><span class="line">       &#125;;</span><br><span class="line"></span><br><span class="line">       Sorter sorter = <span class="keyword">new</span> Sorter();</span><br><span class="line">       sorter.sort(arr);</span><br><span class="line">       System.out.println(Arrays.toString(arr));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>执行代码，输出下面结果：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#123;sid:<span class="number">2</span>,chinese:<span class="number">80</span>,math:<span class="number">89</span>&#125;, &#123;sid:<span class="number">1</span>,chinese:<span class="number">90</span>,math:<span class="number">100</span>&#125;, &#123;sid:<span class="number">3</span>,chinese:<span class="number">91</span>,math:<span class="number">90</span>&#125;]</span><br></pre></td></tr></table></figure></p>
@@ -352,6 +355,10 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
 
         
 
