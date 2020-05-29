@@ -29,13 +29,13 @@ categories:
 
    `ADD <src> <dest>`
 
-   将文件复制到文件：是相对被构建的源目录的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，是容器中的绝对路径。
+   将文件复制到文件：src是相对被构建的源目录（执行docker build命令的当前目录）的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，dest是容器中的绝对路径。
 
 5. COPY
 
    `COPY <src> <dest>`
 
-   复制本地主机的（为Dockerfile所在目录的相对路径）到容器中的,与ADD指令差不多
+   复制本地主机的src到容器中的dest,与ADD指令差不多
 
 6. ENTRYPOINT
 
@@ -95,18 +95,29 @@ categories:
 ### 镜像相关
 1. 查看本地仓库的镜像：`docker images`
 2. 拉取远程仓库镜像：`docker pull REPOSITORY:TAG`
-3. 将本地镜像推送到远程仓库：`docker push REPOSITORY:TAG`
+3. 本地镜像打标记：
+`docker tag IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]`
+4. 使用Dockerfile构建镜像: `docker build -t REPOSITORY:TAG .`
+> .点表示当前目录，默认会找当前目录下的Dockerfile进行构建，也可以通过`-f`指定Dockerfile：`docker build -f /path/Dockerfile -t REPOSITORY:TAG .`
+5. 将本地镜像推送到远程仓库：`docker push REPOSITORY:TAG`
 > 一般需要三步：
 > A. 先将已有镜像打标签:`docker tag IMAGE_ID REPOSITORY:TAG` 需要tag为远程的仓库地址
 > B. 登录远程仓库：`docker login –username=USERNAME REPOSITORY_REGOIN`
 > C. 推送镜像到远程仓库：`docker push REPOSITORY:TAG`
-4. 使用Dockerfile构建镜像: `docker build -t REPOSITORY:TAG .`
-> .点表示当前目录，默认会找当前目录下的Dockerfile进行构建，也可以通过`-f`指定Dockerfile：`docker build -f /path/Dockerfile -t REPOSITORY:TAG .`
-5. 删除镜像：`docker rmi IMAGE_ID/ REPOSITORY:TAG`
+>
+> 比如将hello-docker:v1推送到docker hub库：
+> docker push hub.docker.com/r/bebee/demo/hello-docker:v1
+> docker镜像库：
+> docker hub：https://hub.docker.com
+> 网易云镜像中心：https://c.163yun.com/hub#/m/home/
+6. 删除镜像：`docker rmi IMAGE_ID/ REPOSITORY:TAG`
 > 强制删除：`docker rmi -f IMAGE_ID`
-6. 删除untagged images：`docker rmi $(docker images | grep "^<none>" | awk "{print $3}")`
-7. 删除全部image：`docker rmi $(docker images -q)`
-8. 删除所有不使用的镜像：`docker image prune --force --all` 或 `docker image prune -f -a`
+7. 删除untagged images：`docker rmi $(docker images | grep "^<none>" | awk "{print $3}")`
+8. 删除全部image：`docker rmi $(docker images -q)`
+9. 删除所有不使用的镜像：`docker image prune --force --all` 或 `docker image prune -f -a`
+
+镜像操作流程示意图：
+![镜像操作流程示意图](docker常用操作及技巧/markdown-img-paste-20191212230950631.png)
 
 ### 容器相关
 1. 查看正在运行的容器：`docker ps`
