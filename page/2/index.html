@@ -231,7 +231,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blogtech.top/2019/10/07/docker常用操作及技巧/">
+    <link itemprop="mainEntityOfPage" href="https://blogtech.top/2019/09/27/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -245,7 +245,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/07/docker常用操作及技巧/" class="post-title-link" itemprop="url">docker常用操作及技巧</a>
+            <a href="/2019/09/27/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
         </h1>
 
         <div class="post-meta">
@@ -255,26 +255,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-07 17:52:24" itemprop="dateCreated datePublished" datetime="2019-10-07T17:52:24+08:00">2019-10-07</time>
+              <time title="创建时间：2019-09-27 22:14:56" itemprop="dateCreated datePublished" datetime="2019-09-27T22:14:56+08:00">2019-09-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-29 14:29:52" itemprop="dateModified" datetime="2020-05-29T14:29:52+08:00">2020-05-29</time>
+                <time title="修改时间：2020-05-31 15:53:33" itemprop="dateModified" datetime="2020-05-31T15:53:33+08:00">2020-05-31</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
-                  </a>
-                </span>
-            </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -282,14 +271,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
+              <span>421</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -301,60 +290,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Dockerfile命令"><a href="#Dockerfile命令" class="headerlink" title="Dockerfile命令"></a>Dockerfile命令</h2><blockquote>
-<p>官网介绍：<a href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder/</a></p>
-</blockquote><ol>
-<li><p>FROM</p>
-<p><code>FROM &lt;image&gt;:&lt;tag&gt;</code></p>
-<p> 用于设置基础镜像，一般是Dockerfile的第一句。如果没有指定tag，则默认tag是latest。</p>
-</li>
-<li><p>MAINTAINER</p>
-<p><code>MAINTAINER &lt;name&gt;</code></p>
-<p>用来指定维护者的姓名和联系方式。</p>
-</li>
-<li><p>RUN</p>
-<p><code>RUN &lt;command&gt; 或 RUN [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code></p>
-<p>每条 RUN 指令将在当前镜像基础上执行指定命令，并提交为新的镜像。</p>
-</li>
-<li><p>ADD</p>
-<p><code>ADD &lt;src&gt; &lt;dest&gt;</code></p>
-<p>将文件复制到文件：src是相对被构建的源目录（执行docker build命令的当前目录）的相对路径，可以是文件或目录的路径，也可以是一个远程的文件 url，dest是容器中的绝对路径。</p>
-</li>
-<li><p>COPY</p>
-<p><code>COPY &lt;src&gt; &lt;dest&gt;</code></p>
-<p>复制本地主机的src到容器中的dest,与ADD指令差不多</p>
-</li>
-<li><p>ENTRYPOINT</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ENTRYPOINT [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] ：推荐使用的<span class="built_in">exec</span>形式</span><br><span class="line">ENTRYPOINT <span class="built_in">command</span> param1 param2 ：shell 形式</span><br></pre></td></tr></table></figure>
-<p>配置容器启动后执行的命令，并且不可被 docker run 提供的参数覆盖。一个 Dockerfile 中只能有一个 ENTRYPOINT，如果有多个，则最后一个生效。</p>
-</li>
-<li><p>CMD</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMD [<span class="string">"executable"</span>,<span class="string">"param1"</span>,<span class="string">"param2"</span>] 使用<span class="built_in">exec</span>执行，推荐方式；</span><br><span class="line">CMD <span class="built_in">command</span> param1 param2 在/bin/sh 中执行，提供给需要交互的应用；</span><br><span class="line">CMD [<span class="string">"param1"</span>,<span class="string">"param2"</span>]提供给ENTRYPOINT 的默认参数；</span><br></pre></td></tr></table></figure>
-<p>指定启动容器时执行的命令，每个 Dockerfile 只能有一条 CMD 命令。如果指定了多条命令，只有最后一条会被执行。如果用户启动容器时候指定了运行的命令，则会覆盖掉 CMD 指定的命令。</p>
-</li>
-<li><p>WORKDIR</p>
-<p><code>WORKDIR /path/to/workdir</code></p>
-<p>为后续的 RUN、CMD、ENTRYPOINT 指令配置工作目录。可以使用多个 WORKDIR 指令，后续命令如果参数是相对路径，则会基于之前命令指定的路径。例如：<br>WORKDIR /a<br>WORKDIR b<br>WORKDIR c<br>RUN pwd<br>则最终路径为 /a/b/c 。</p>
-</li>
-<li><p>EXPOSE</p>
-<p><code>EXPOSE &lt;port&gt; [&lt;port&gt;...]</code></p>
-<p>告诉 Docker 服务端容器暴露的端口号，供互联系统使用。例如：EXPOSE 8080 3000，开放 8080 和 3000 端口。</p>
-</li>
-<li><p>ENV</p>
-<p><code>ENV &lt;key&gt; &lt;value&gt;</code><br>指定一个环境变量，会被后续 RUN 指令使用，并在容器运行时保持。</p>
-</li>
-<li><p>VOLUME</p>
-<p><code>VOLUME [&quot;/data&quot;]</code></p>
-<p>创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存放数据库和需要保持的数据等。</p>
-</li>
-<li><p>USER</p>
-<p><code>USER &lt;UID/Username&gt;</code></p>
-<p>为容器内指定 CMD RUN ENTRYPOINT 命令运行时的用户名或UID。</p>
-</li>
-</ol>
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/07/docker常用操作及技巧/#more" rel="contents">
+              <a class="btn" href="/2019/09/27/hello-world/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
